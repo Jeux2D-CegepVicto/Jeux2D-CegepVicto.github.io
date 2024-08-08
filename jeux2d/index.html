@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://Jeux2D-Cegepvicto.github.io/installation/">
+        <link rel="canonical" href="https://Jeux2D-Cegepvicto.github.io/jeux2d/">
       
       
-        <link rel="prev" href="..">
-      
-      
-        <link rel="next" href="../environement/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +18,7 @@
     
     
       
-        <title>Installation - Jeux2D - Automne 2024</title>
+        <title>Jeux en 2 dimensions - Jeux2D - Automne 2024</title>
       
     
     
@@ -64,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation-du-moteur-unity" class="md-skip">
+        <a href="#jeux-en-2-dimensions" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installation
+              Jeux en 2 dimensions
             
           </span>
         </div>
@@ -210,19 +206,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -231,7 +218,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -289,35 +275,59 @@
                   
 
 
-<h1 id="installation-du-moteur-unity">Installation du moteur Unity</h1>
-<p>Compétence ciblée</p>
-<p>00SW - 2 : Préparer l’environnement de développement informatique</p>
+<h1 id="jeux-en-2-dimensions">Jeux en 2 dimensions</h1>
+<p>Éléments de compétence ciblés</p>
+<p>00SW - 1 : Analyser le projet de développement de l’application</p>
+<p>Habileté</p>
 <ul>
-<li><a href="https://unity.com/fr/download">Télécharger et installer Unity Hub</a></li>
+<li>Comprendre le mécanisme de simulation en temps réel</li>
+<li>Décortiquer les éléments du jeu à réaliser</li>
 </ul>
-<p><img alt="Sélection Unity Hub" src="../img/unity_hub_dwnld.png" /></p>
+<h1 id="un-jeu-ou-une-simulation">Un jeu ou une simulation?</h1>
+<p>Un jeu d'ordinateur est en fait la simulation d'un environnement. Le concepteur détermine les règles du monde dans lequel l'utilisateur se retrouve. Elle devient un jeu lorsque le concepteur définit des interactions stimulantes, un  but désirable, une progression accroheuse, un thème visuel excitant... Une myriade de facteurs peuvent retenir l'intérêt du joueur</p>
+<h1 id="la-boucle-de-jeu">La boucle de jeu</h1>
+<p>Que le jeu soit développé à partir d'un code original ou implémenté au moyen d'un moteur (Unity dans le cadre du cours), il s'appuie toujours sur une boucle pour donner l'illusion d'une réalité alternative.</p>
+<h2 id="phase-1-initialisation">Phase 1 : Initialisation</h2>
+<p>_       ___    <strong><em>_  ___    </em></strong><em>  ____    ____ 
+| |     /   \  /    ||   \  |    ||    \  /    |
+| |    |     ||  o  ||    \  |  | |  _  ||   __|
+| |___ |  O  ||     ||  D  | |  | |  |  ||  |  |
+|     ||     ||  _  ||     | |  | |  |  ||  |</em> |
+|     ||     ||  |  ||     | |  | |  |  ||     |
+|<strong><em>_</em>| _</strong>/ |<strong>|</strong>||<strong><em>_</em>||</strong><strong>||</strong>|__||___,_|</p>
+<p>Avant de démarrer la boucle il y a toujours une phase d'initialisation. Que ce soit le chargement initial, un changement de niveau ou même l'apparition d'un nouvel ennemi, il faudra préparer l'état de départ avant de passer à l'action!</p>
+<h2 id="phase-2-mise-a-jour">Phase 2 : Mise à Jour</h2>
+<p>La mise à jour fait partie intégrante de la boucle. Cette étape gère entre autre :
+- La saisie et la réaction aux commandes de l'utilisateur
+- La progression du jeu 
+- L'implémentation des règles et des mécaniques du jeu</p>
+<p>C'est à cet endroit que la majorité de la logique de jeu est appliquée</p>
+<h2 id="phase-3-affichage">Phase 3 : Affichage</h2>
+<p>Enfin les éléments sont affichés (ou diffusés dans le cas de l'environnement sonore). Une phase qui est cruciale pour que le joueur puisse apprécier le résultat de ses actions et constater l'état mis à jour du jeu.</p>
+<h1 id="types-de-jeux-en-2-dimensions">Types de jeux en 2 dimensions</h1>
+<h2 id="jeux-a-ecran-simple">Jeux à écran simple</h2>
+<p><img alt="Pacman" src="../img/pacman.png" /></p>
 <ul>
-<li>
-<p>Créer un compte Unity pour se connecter à Unity Hub</p>
-</li>
-<li>
-<p>Dans la section <em>Installs</em> choisir l'installation de la version <em>LTS</em> la plus récente (la version peut-être différente selon la date d'installation)</p>
-</li>
+<li>Caméra fixe</li>
+<li>Vue de haut ou de côté</li>
+<li>Genres fréquents : arcade, puzzle, rythme</li>
+<li>Quelques exemples : casse-brique, Tetris, Guitar Hero, Street Fighter</li>
 </ul>
-<p><img alt="Install Unity" src="../img/unity_hub_instEdtr.png" /></p>
-<p><img alt="alt text" src="../img/unity_hub_instEdtrVer.png" /></p>
+<h2 id="jeux-a-defilement">Jeux à défilement</h2>
+<p><img alt="alt text" src="../img/Contra.png" /></p>
 <ul>
-<li>Ajouter les modules Android et Windows (ou autre selon le système d'exploitation utilisé)</li>
+<li>La caméra suit le joueur</li>
+<li>Vue de haut, de côté, isométrique</li>
+<li>Genres féquents : course, action/aventure, platformer, combat, roguelite</li>
+<li>Quelques exemples : Zelda, Double Dragon, Super Mario, Hotline Miami</li>
 </ul>
-<p><img alt="alt text" src="../img/unity_hub_instEdtrMdl.png" /></p>
-<ul>
-<li>
-<p>À NOTER : un outil de développement pour le code devrait déjà être installé. Si ce n'est pas le cas, il est recommandé d'utiliser Visual Studio Community </p>
-</li>
-<li>
-<p>Accepter les termes et conditions puis procéder à l'installation</p>
-</li>
-</ul>
+<p>Les types et genres peuvent être combinés. Plusieurs jeux jonglent entre les différents concepts pour créer une expérience unique!</p>
+<h1 id="un-domaine-oriente-objet">Un domaine orienté objet</h1>
+<p>Les exercices d'apprentissage en programmation orientée objet utilisent féquement des items de la vie courante comme : un vélo, une voiture, une personne, etc...</p>
+<p>Le jeu tente de créer un monde virtuel par conséquent il faudra décrire chacun des éléments du jeu par programmation. Exemples : une voiture, une personne, un outils, etc...</p>
+<p>Le lien entre le jeu (ou la simulation) et la conception orientée objet est très fort. Les moteurs de jeu offrent toujours au développeurs un objet de base qui permet de concrétiser un élément. </p>
+<p>Dans le cadre du cours le moteur Unity utilise le GameObject, une classe flexible et extensible. En analysant l'image ci-dessous, quelques GameObjects peuvent être identifiés.</p>
+<h1 id="document-de-conception">Document de conception</h1>
 
 
 
