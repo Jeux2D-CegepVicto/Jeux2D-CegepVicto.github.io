@@ -293,12 +293,118 @@
 00SW - 3 : Générer des représentations de mondes réels ou imaginaires</p>
 <p>Habiletés</p>
 <ul>
-<li>Installer les bibliothèques</li>
-<li>Configurer le système de gestion de versions</li>
-<li>Importer le code source</li>
+<li>Importer les sources</li>
 <li>Intégrer des images, scripts et objets</li>
 </ul>
 <h1 id="le-moteur-de-jeu-unity">Le moteur de jeu Unity</h1>
+<p>Un jeu ou une simulation est enrigistrée dans un dossier du même nom que le projet de développement.</p>
+<p>Pour éviter les erreurs et faciliter le travail, créez un dossier dédié sur votre disque.</p>
+<p><em>ATTENTION! : Créer le dossier ailleurs que dans votre dossier Documents ou One Drive (ou tout autre dossier infonuagique).</em> </p>
+<h2 id="ajouter-un-projet-existant">Ajouter un projet existant</h2>
+<ul>
+<li>Télécharger le projet <em>Environnement</em> dans la section <em>fichiers</em> de votre groupe Teams pour le cours.</li>
+<li>Démarrer Unity Hub</li>
+<li>Dans la section <em>Projects</em>, cliquer sur ajouter puis repérer le dossier du projet et l'ouvrir.</li>
+</ul>
+<p><img alt="alt text" src="../img/unity_hub_addPrjct.png" /></p>
+<h2 id="interface">Interface</h2>
+<ul>
+<li>Quatres fenêtres principales : Hierarchy, Scene, Project, Inspector</li>
+</ul>
+<p><img alt="alt text" src="../img/unity_fenetres.png" /></p>
+<h3 id="en-pratique">En pratique</h3>
+<ol>
+<li>
+<p>Créer et ouvrir une scène</p>
+</li>
+<li>
+<p>Dans l'explorateur de projet choisir le dossier Scenes</p>
+</li>
+<li>Dans la sectoin à droite, ouvrir le menu contextuel (clique droit) </li>
+<li>Choisir Create ­&gt; Scene puis renommer la nouvelle scène.</li>
+<li>Ouvrir la nouvelle scène en la double cliquant dans l'explorateur de projet</li>
+<li>
+<p>Revenir à la scène Environement</p>
+</li>
+<li>
+<p>Explorer la scène</p>
+</li>
+<li>
+<p>Dans la fenêtre de scène, utiliser le bouton de droite ou le bouton central pour cliquer et glisser. </p>
+</li>
+<li>Remarquer que le curseur se change en main et on déplace le point de vue que nous avons sur la scène.</li>
+<li>Les flèches du clavier sont un autre moyen de déplacer le point de vue.</li>
+<li>Dans la fenêtre de hiérarchie, double cliquer un GameObject. La vue de scène est centrée sur cet élément.</li>
+<li>Il est possible de sélectionner l'élément et utiliser la touche F pour faire la même chose.</li>
+<li>
+<p>Double cliquer le GameObject fond permettra d'avoir une vue d'ensemble de la scène.</p>
+</li>
+<li>
+<p>Créer et modifier un nouveau GameObject</p>
+</li>
+<li>
+<p>Dans l'explorateur de projet, ouvrir le dossier Art puis cliquer et glisser l'item Joueur dans la vue de la scène.</p>
+</li>
+<li>Remarquer les changements, on voit le joueur dans la scène et un GameObject a été crée dans la fenêtre de hiérachie.</li>
+<li>Sélectionner le GameObject Joueur dans le fenêtre de hiérarchie.</li>
+<li>Dans l'inspecteur localiser les propriétés X et Y. Modifier la valeur pour 0.</li>
+<li>Le joueur est maintenant au centre de la scène.</li>
+<li>
+<p>Sauvegarder votre projet par le menu File &gt; Save ou le raccourci CTRL + S</p>
+</li>
+<li>
+<p>Tester le résultat en mode jeu</p>
+</li>
+<li>
+<p>Le mode jeu permet de tester une scène.</p>
+</li>
+<li>Localiser et activer le bouton lecture en haut de la fenêtre de scène.</li>
+<li>On peut maintenant voir le résultat de notre scène telle que le joueur la voit. Il ne se pas grand chose pour le moment!</li>
+<li>
+<p>Sortir du mode jeu en cliquant le bouton lecture.</p>
+</li>
+<li>
+<p>Modifier un GameObject en ajoutant des composantes (Component)</p>
+</li>
+<li>
+<p>Localiser le dossier Script dans l'explorateur de projet.</p>
+</li>
+<li>Avec le GameObject Joueur sélectionné, cliquer et glisser le script MvmtJoueur dans une zone vide de l'inspecteur.</li>
+<li>Un nouveau component MvmtJoueur, de type script, se retrouve dans la liste des composantes.</li>
+<li>
+<p>Tester le résultat, le joueur se déplace latéralement avec les touches AD</p>
+</li>
+<li>
+<p>Modifier les éléments dans la fenêtre de scène</p>
+</li>
+<li>
+<p>Sélectionner le Joueur dans la fenêtre de hiérarchie</p>
+</li>
+<li>Localiser et cliquer sur l'outil de déplacement dans la fenêtre de scène (flèche 4 directions en dessous de la main)</li>
+<li>Deux flèches apparaissent (verte et rouge).</li>
+<li>Utiliser les flèches dans la vue de scène pour placer le joueur vers la gauche et au centre de la caméra (bordure blanche).</li>
+<li>Sélectionner l'outil de rotation (en-dessous de l'outil de déplacment).</li>
+<li>Tester les effets de rotation en utilisant les nouveaux indicateurs (cercles vert, rouge, bleu).</li>
+<li>
+<p>Utiliser l'inspecteur pour placer le joueur à : X = -5 et Y = 0, toutes les rotations à 0</p>
+</li>
+<li>
+<p>Éditer un script</p>
+</li>
+<li>
+<p>Dans la fenêtre de projet sélectionner le dossier Scripts et double cliquer MvmtJoueur.</p>
+</li>
+<li>L'éditeur de code sélectionné pendant l'installation s'ouvre avec le script chargé.</li>
+<li>Analyser le script et ajouter le mouvement vertical en assignant la touche W et S aux déplacements vers le haut et le bas respectivement.</li>
+<li>Sauvegarder le script.</li>
+<li>Tester le résultat en mode jeu, le joueur devrait pouvoir se déplacer dans toutes les directions.</li>
+</ol>
+<h2 id="references-et-approfondissement">Références et approfondissement</h2>
+<ul>
+<li><a href="https://docs.unity3d.com/Manual/ProjectView.html">Fenêtre de projet</a></li>
+<li><a href="https://docs.unity3d.com/Manual/Hierarchy.html">Fenêtre de hiérarchie</a></li>
+<li><a href="https://docs.unity3d.com/Manual/UsingTheInspector.html">Inspecteur</a></li>
+</ul>
 
 
 
