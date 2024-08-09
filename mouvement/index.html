@@ -467,6 +467,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rendre-le-mouvement-independant-de-la-vitesse-daffichage-framerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rendre le mouvement indépendant de la vitesse d'affichage (framerate)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#donner-acces-aux-variables-du-script-dans-linterface-unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Donner accès aux variables du script dans l'interface Unity
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Donner accès aux variables du script dans l'interface Unity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references-et-approfondissement" class="md-nav__link">
     <span class="md-ellipsis">
       Références et approfondissement
@@ -660,6 +693,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#rendre-le-mouvement-independant-de-la-vitesse-daffichage-framerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rendre le mouvement indépendant de la vitesse d'affichage (framerate)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#donner-acces-aux-variables-du-script-dans-linterface-unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Donner accès aux variables du script dans l'interface Unity
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Donner accès aux variables du script dans l'interface Unity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references-et-approfondissement" class="md-nav__link">
     <span class="md-ellipsis">
       Références et approfondissement
@@ -836,6 +902,43 @@
 <img alt="Composite Binding Result" src="../img/unity_InputActionAddComposite2_SpaceKit.png" /></p>
 <ul>
 <li>Passer en mode jeu et tester le résultat. Le joueur devrait pouvoir se déplacer dans toutes les directions.</li>
+</ul>
+<h2 id="rendre-le-mouvement-independant-de-la-vitesse-daffichage-framerate">Rendre le mouvement indépendant de la vitesse d'affichage (framerate)</h2>
+<p>La boucle de jeu met à jour les informations puis affiche l'état du jeu. Donc, à chaque affichage, la méthode <code>Update()</code> du script de mouvement est exécuté.</p>
+<pre><code>    void Update()
+    {
+        Vector2 mouvement = MvmtAction.ReadValue&lt;Vector2&gt;();
+        Vector2 position = (Vector2)transform.position + mouvement * 0.1f;
+        transform.position = position;
+    }
+</code></pre>
+<p>En analysant le code, le déplacement est de 1/10 d'unité par exécution:
+- Si un ordinateur puissant exécute le jeu et affiche à un rythme de 120fps (frame per second), le joueur se déplace de 12 unités par seconde. 
+- Un autre ordinateur moins performant affiche à un rythme de 60fps, le joueur aura une vitesse de 6 unités par seconde.</p>
+<p>Pour avoir un mouvement cohérent, quelle que soit la machine qui exécute le code, il faut tenir compte du temps écoulé entre chaque exécution. La librairie C# de Unity fournit la classe statique <em>Time</em> qui possède justement l'attribut <em>deltaTime</em>, le temps écoulé depuis la dernière exécution de la boucle de jeu.</p>
+<p>Il ne reste qu'à multiplier le mouvement par <em>deltaTime</em> pour normaliser les déplacement à 0.1 unité par seconde.</p>
+<pre><code>    void Update()
+    {
+        Vector2 mouvement = MvmtAction.ReadValue&lt;Vector2&gt;();
+        Vector2 position = (Vector2)transform.position + mouvement * Time.deltaTime * 0.1f;
+        transform.position = position;
+    }
+
+</code></pre>
+<p>En testant le jeu, il devient évident que la normalisation du mouvement l'a rendu très lent! La valeur magique de 0.1f peut être modifiée pour obtenir une vitesse adéquate.</p>
+<h2 id="donner-acces-aux-variables-du-script-dans-linterface-unity">Donner accès aux variables du script dans l'interface Unity</h2>
+<p>Ajuster le mouvement après normalisation devient rapidement désagréable. Il faut ouvrir le script, modifier la variable, sauvegarder, attendre que Unity recompile, etc... Et il n'est question que de la vitesse de déplacement du joueur!</p>
+<p>Pour <strong>optimiser le travail</strong> de conception, rendre disponible des variable comme la vitesse directement dans l'interface de Unity. Ce procédé a déjà été utilisé lors de la configuration des interactions.</p>
+<h4 id="en-pratique_4">En pratique</h4>
+<ul>
+<li>Ouvrir le script de mouvement du joueur.</li>
+<li>Ajouter l'attribut <code>public Float vitesse</code>.</li>
+<li>Modifier le calcul de la position pour utiliser la variable vitesse au lieu de 0.1f.</li>
+<li>Repérer la nouvelle variable de script dans l'inspecteur du GameObject Joueur.</li>
+</ul>
+<p><img alt="Export variable" src="../img/unity_exportScriptVar_SpaceKit.png" /></p>
+<ul>
+<li>Tester le jeu avec différentes valeurs.</li>
 </ul>
 <h2 id="references-et-approfondissement">Références et approfondissement</h2>
 <p><a href="https://docs.unity3d.com/Manual/Sprites.html">Les <em>Sprites</em></a>
