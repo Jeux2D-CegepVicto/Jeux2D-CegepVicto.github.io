@@ -11,6 +11,8 @@
         <link rel="canonical" href="https://Jeux2D-Cegepvicto.github.io/physique01/">
       
       
+        <link rel="prev" href="../mouvement/">
+      
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>Physique 01 : Collisions - Jeux2D - Automne 2024</title>
+        <title>Physique 01 - Jeux2D - Automne 2024</title>
       
     
     
@@ -96,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Physique 01 : Collisions
+              Physique 01
             
           </span>
         </div>
@@ -278,6 +280,285 @@
   
 
       </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Physique 01
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Physique 01
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reprendre-le-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reprendre le projet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creer-un-prefab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Créer un Prefab
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Créer un Prefab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifier-un-prefab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modifier un prefab
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modifier un prefab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rigidbody2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      RigidBody2D
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RigidBody2D">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ajouter-rigidbody2d-au-prefab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajouter RigidBody2D au prefab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajuster-les-proprietes-du-rigidbody2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajuster les propriétés du RigidBody2D
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collider2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Collider2D
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Collider2D">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#completer-lasteroide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compléter l'astéroïde
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurer-le-joueur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurer le joueur
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajouter-une-contrainte" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajouter une contrainte
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-methode-fixedupdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      La méthode FixedUpdate
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="La méthode FixedUpdate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modifier-le-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modifier le script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finaliser-le-mouvement-avec-physique" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finaliser le mouvement avec physique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-et-approfondissement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Références et approfondissement
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
