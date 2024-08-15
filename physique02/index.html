@@ -11,6 +11,8 @@
         <link rel="canonical" href="https://Jeux2D-Cegepvicto.github.io/physique02/">
       
       
+        <link rel="prev" href="../physique01/">
+      
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>Physique 02 : Collisions et mécaniques - Jeux2D - Automne 2024</title>
+        <title>Physique 02 - Jeux2D - Automne 2024</title>
       
     
     
@@ -96,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Physique 02 : Collisions et mécaniques
+              Physique 02
             
           </span>
         </div>
@@ -298,6 +300,303 @@
   
 
       </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Physique 02
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Physique 02
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reprendre-le-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reprendre le projet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deplacer-les-asteroides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Déplacer les astéroïdes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Déplacer les astéroïdes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripter-les-collisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scripter les collisions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scripter les collisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mecanique-durabilite-du-vaisseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mécanique : durabilité du vaisseau
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mécanique : durabilité du vaisseau">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparer-le-systeme-de-durabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Préparer le système de durabilité
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interlude-les-etiquettes-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interlude : les étiquettes (Tag)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-des-points-de-durabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gestion des points de durabilité
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mecanique-zone-de-jeu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mécanique : zone de jeu
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mécanique : zone de jeu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creer-les-layers-de-collision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Créer les Layers de collision
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurer-la-matrice-de-collision-des-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurer la matrice de collision des Layers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mecanique-generer-des-asteroides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mécanique : Générer des astéroïdes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mécanique : Générer des astéroïdes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparer-le-generateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Préparer le générateur
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajuster-le-script-de-lasteroide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajuster le script de l'astéroïde
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurer-la-touche-de-lancement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurer la touche de lancement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#completer-la-generation-dasteroides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compléter la génération d'astéroïdes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-et-approfondissement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Références et approfondissement
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
