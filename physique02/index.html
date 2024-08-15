@@ -1,0 +1,865 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Jeux2D-Cegepvicto.github.io/physique02/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>Physique 02 : Collisions et mécaniques - Jeux2D - Automne 2024</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#physique-02-collisions-et-mecaniques" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Jeux2D - Automne 2024" class="md-header__button md-logo" aria-label="Jeux2D - Automne 2024" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Jeux2D - Automne 2024
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Physique 02 : Collisions et mécaniques
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Jeux2D - Automne 2024" class="md-nav__button md-logo" aria-label="Jeux2D - Automne 2024" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Jeux2D - Automne 2024
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jeux2d/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jeux 2D
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mouvement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Déplacements et intéractions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physique01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Physique 01
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reprendre-le-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reprendre le projet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deplacer-les-asteroides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Déplacer les astéroïdes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Déplacer les astéroïdes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripter-les-collisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scripter les collisions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scripter les collisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mecanique-durabilite-du-vaisseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mécanique : durabilité du vaisseau
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mécanique : durabilité du vaisseau">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparer-le-systeme-de-durabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Préparer le système de durabilité
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interlude-les-etiquettes-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interlude : les étiquettes (Tag)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-des-points-de-durabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gestion des points de durabilité
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mecanique-zone-de-jeu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mécanique : zone de jeu
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mécanique : zone de jeu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creer-les-layers-de-collision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Créer les Layers de collision
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurer-la-matrice-de-collision-des-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurer la matrice de collision des Layers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mecanique-generer-des-asteroides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mécanique : Générer des astéroïdes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mécanique : Générer des astéroïdes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#preparer-le-generateur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Préparer le générateur
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajuster-le-script-de-lasteroide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajuster le script de l'astéroïde
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurer-la-touche-de-lancement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurer la touche de lancement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#completer-la-generation-dasteroides" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compléter la génération d'astéroïdes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-et-approfondissement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Références et approfondissement
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="physique-02-collisions-et-mecaniques">Physique 02 : Collisions et mécaniques</h1>
+<p>Élément de compétence ciblé</p>
+<p>00SW - 4 : Programmer la logique du jeu ou de la simulation</p>
+<p>Habiletés</p>
+<ul>
+<li>Programmer les comportements des éléments graphiques</li>
+<li>Utiliser les moteurs de jeu ou de simulation</li>
+</ul>
+<h2 id="reprendre-le-projet">Reprendre le projet</h2>
+<p>Le projet entammé dans la section <strong>Mouvement</strong> comporte le joueur et son déplacement, ainsi que la saisie des entrées de l'utilisateur. La section <strong>Physique 01</strong> ajoute le lien avec le moteur de physique.</p>
+<p>Cette section développe l'utilisation des calculs de physqiue, la saisie des intéractions et la programmation pour implémenter les mécaniques du jeu. </p>
+<p>Commencer par ouvrir le projet existant.</p>
+<h2 id="deplacer-les-asteroides">Déplacer les astéroïdes</h2>
+<p>Il serait possible par programmation d'implémenter le déplacement des astéroïdes. Le code pour créer de toutes pièces un déplacement réaliste implique plusieurs calculs et de nombreuses lignes de code. </p>
+<p>Le moteur de physique peut prendre en charge un objet et s'occuper du déplacement selon les paramètres initaux fournis. La méthode <code>Update()</code> devient inutile!</p>
+<p>Cette technique utilise la méthode <code>Awake()</code>. Cette méthode est exécutée dès que le <em>GameObject</em> est initialisé, avant la méthode <code>Start()</code> qui s'exécute au premier rendu(frame) après l'instantiation.</p>
+<h3 id="en-pratique">En pratique</h3>
+<ul>
+<li>Créer un nouveau script : AsteroidPhysx.</li>
+<li>Ajouter le nouveau script au <strong>prefab</strong> de l'astéroïde.</li>
+<li>Ouvrir le script dans l'éditeur de code.</li>
+<li>Effacer les méthodes <code>Start()</code> et <code>Update</code>.</li>
+<li>Ajouter l'attribut privé <code>Rigidbody2D rigidbody2d;</code>.</li>
+<li>Ajouter l'attribut publique <code>float vitesse;</code>. Il permet d'ajuster la vitesse au niveau de l'éditeur et d'avoir un seul script pour plusieurs prefabs avec des vitesses différentes!</li>
+<li>Ajouter la méthode <code>void Awake()</code>.</li>
+<li>Ajouter l'instruction pour récupérer la composante RigidBody2D du GameObject lié au script.</li>
+<li>Ajouter l'instruction <code>rigidbody2d.AddForce(Vector2.left * vitesse);</code>.<ul>
+<li>AddForce propulse l'astéroïde selon un vecteur.</li>
+<li><code>Vector2.left</code> est un vecteur de longueur 1 pointant vers la gauche de l'écran.</li>
+<li>La vitesse multiplie le vecteur car la fore appliquée à l'astéroïde dépend de la longueur de ce vecteur.</li>
+</ul>
+</li>
+<li>Tester la scène.</li>
+<li>Remarquer que l'astéroïde s'arrête dès qu'il entre en collision.</li>
+</ul>
+<h2 id="scripter-les-collisions">Scripter les collisions</h2>
+<p>Trois méthodes sont disponibles pour traiter la collision entre deux objets configurés pour le moteur de physique. Ce sont des méthodes qui traitent un événement comme les méthodes communes OnClick.</p>
+<ul>
+<li>OnCollisionEnter() : au premier contact entre les objets</li>
+<li>OnCollisionStay() : activé chaque <em>frame</em> où deux objets sont en contact</li>
+<li>OnCollisionExit() : lorsque les deux objets se séparent</li>
+</ul>
+<p>Le paramètre reçu par cette méthode est une classe Collision2D. Elle donne accès aux information de l'autre objet en collision.</p>
+<h3 id="en-pratique_1">En pratique</h3>
+<ul>
+<li>Ajouter la méthode <code>void OnCollisionEnter2D(Collision2D autreObjet)</code>.</li>
+<li>Pour faire afficher à la console de débogage l'autre objet, ajouter l'instruction <code>Debug.Log(autreObjet.gameObject);</code></li>
+<li>Pour détruire l'astéroïde ajouter l'instruction <code>Destroy(gameObject);</code>.</li>
+<li><strong>RAPPEL</strong> : la propriété gameObject utilisée seule dans un script fait référence au <em>GameObject</em> attaché au script.</li>
+<li>Tester la scène et observer la console après une/des collisions.</li>
+</ul>
+<h2 id="mecanique-durabilite-du-vaisseau">Mécanique : durabilité du vaisseau</h2>
+<p>Pour motiver l'utilisateur à éviter les collisions avec les astéroïdes, chaque collision diminue la durabilité du vaisseau. Lorsque le vaisseau n'a plus de durabilité la partie est finie!</p>
+<h3 id="en-pratique_2">En pratique</h3>
+<ul>
+<li>Ouvrir le script du joueur.</li>
+</ul>
+<h4 id="preparer-le-systeme-de-durabilite">Préparer le système de durabilité</h4>
+<ul>
+<li>Ajouter l'attribut maxDurabilite, modifiable dans l'inspecteur.</li>
+<li>Ajouter l'attribut durabilite. C'est la durabilité actuelle qui est traitée par le script.</li>
+<li>Initialiser l'attribut durabilite avec la valeur de maxDurabilite.</li>
+<li>Ajouter la méthode <code>void ChangerDurabilite(int modificateur)</code> </li>
+<li>Dans la méthode ChangerDurabilite ajouter l'instruction :
+    <code>durabilite = Mathf.Clamp(durabilite + modificateur, 0, maxDurabilite);</code></li>
+<li>L'instruction <strong>Clamp</strong> restreint la valeur du premier paramètre entre la valeur minimum (2ème paramètre) et la valeur maximum (3ème paramètre).</li>
+<li>Ajouter l'affichage à la console de <em>durabilite / maxDurabilite</em> quand la méthode est exécutée.</li>
+</ul>
+<h4 id="interlude-les-etiquettes-tag">Interlude : les étiquettes (Tag)</h4>
+<p>Les objets du jeux n'entreront pas nécessairement en collision avec un seul autre type d'objet. </p>
+<p>Unity offre le système d'étiquettes pour identifier facilement un groupe d'objets. Assigner une étiquette significative aux <em>Prefabs</em> (et/ou <em>GameObjects</em>) <strong>organise</strong> les ressources du jeu et <strong>optimise</strong> la programmation.</p>
+<ul>
+<li>Ouvrir l'éditeur de <em>Prefab</em> pour le joueur.</li>
+<li>Dans l'inspecteur, développer la liste déroulate de la propriété Tag.</li>
+<li>Choisir <em>Add Tag</em>.</li>
+</ul>
+<p><img alt="Add Tag" src="../img/unity_inspectorTag_SpaceKit.png" /></p>
+<ul>
+<li>Ajouter l'étiquette Joueur puis l'assigner au <em>Prefab</em> du Joueur.</li>
+<li>Recommencer le processus pour les astéroïdes avec le tag Asteroid.</li>
+</ul>
+<h4 id="gestion-des-points-de-durabilite">Gestion des points de durabilité</h4>
+<ul>
+<li>Ouvrir le script de contrôle pour l'astéroïde.</li>
+<li>Repérer la méthode appelée lors de la collision.</li>
+<li>
+<p>Ajouter les instructions selon le pseudo-code suivant.</p>
+</li>
+<li>
+<p>Si la collision est avec un objet étiqueté Joueur.</p>
+<ul>
+<li>Obtenir la composante <em>nom du script</em> (JoueurCtrlPhysx).</li>
+<li>Si la composante n'est pas null<ul>
+<li>Appeler la méthode ChangerDurabilité avec -1 pour l'ajustement.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>    private void OnCollisionEnter2D(Collision2D autreObjet)
+    {
+        if (autreObjet.gameObject.tag == &quot;Joueur&quot;)
+        {  
+            JoueurCtrlPhysx joueurCtrlPhysx = autreObjet.gameObject.GetComponent&lt;JoueurCtrlPhysx&gt;();
+            if (joueurCtrlPhysx != null)
+            {
+                joueurCtrlPhysx.ChangerDurabilite(-1);
+            }
+        }
+        Debug.Log(&quot;Je suis entré en collision avec &quot; +  autreObjet.gameObject.tag);
+        Destroy(gameObject);
+    }
+</code></pre>
+<ul>
+<li>Tester la scène et vérifier les messages à la console.</li>
+</ul>
+<p><img alt="Console test hp" src="../img/unity_debiugLogHP_SpaceKit.png" /></p>
+<h2 id="mecanique-zone-de-jeu">Mécanique : zone de jeu</h2>
+<p>En ajoutant des murs invisible, le joueur reste toujours dans la zone de jeu. Mais les astéroïdes aussi!</p>
+<p>Les couches de collisions (Layers) résolvent ce problème. Elles regroupent les <em>GameObjects</em> pour les filtrer lors des collisions.</p>
+<p>Pour garder le joueur dans la zone de jeu mais laisser passer les astéroïde, il faut que le joueur entre en collision avec les murs mais pas les astéroïdes.</p>
+<h3 id="en-pratique_3">En pratique</h3>
+<h4 id="creer-les-layers-de-collision">Créer les <em>Layers</em> de collision</h4>
+<ul>
+<li>Ouvrir l'éditeur de <em>Prefab</em> pour le Joueur.</li>
+<li>Dans l'inspecteur, Développer le menu déroulant de la propriété Layer et choisir <em>Add Layer...</em>.</li>
+</ul>
+<p><img alt="Add Layer" src="../img/unity_CollisionLayers00_SpaceKit.png" /></p>
+<ul>
+<li>Choisir trois couches innoccupées et renommer les Joueur, Asteroid et Murs.</li>
+<li>Assigner les couches à leurs prefabs respectifs.</li>
+</ul>
+<p><img alt="Layer Joueur" src="../img/unity_CollisionLayers01_SpaceKit.png" /></p>
+<h4 id="configurer-la-matrice-de-collision-des-layers">Configurer la matrice de collision des <em>Layers</em></h4>
+<ul>
+<li>Ouvrir les paramètres du projet <em>Edit &gt; Project Settings &gt;
+Physics 2D</em>.</li>
+<li>Sélectionner l'onglet <em>Layer Collision Matrix</em></li>
+</ul>
+<p><img alt="Collision Layer Matrix" src="../img/unity_CollisionLayers02_SpaceKit.png" /></p>
+<ul>
+<li>Configurer la matrice pour que les astéroïdes ignorent les collisions avec les murs.</li>
+</ul>
+<p><img alt="Config no walls" src="../img/unity_CollisionLayers03_SpaceKit.png" /></p>
+<ul>
+<li>Tester la schène.</li>
+</ul>
+<h2 id="mecanique-generer-des-asteroides">Mécanique : Générer des astéroïdes</h2>
+<p>Présentement il n'y a qu'un seul ou quelques astéroïdes à l'écran. Pour représenter un champ d'astéroïdes il faut générer des instances de GameObject à droite de l'écran et ainsi créer l'illusion de mouvement.</p>
+<h3 id="en-pratique_4">En pratique</h3>
+<h4 id="preparer-le-generateur">Préparer le générateur</h4>
+<p>Pour commencer et tester le générateur. Il lance un astéroïde lorsque la touche d'espacement (<em>spacebar</em>) est enfoncée.</p>
+<p>Le script sera modifié à la fin des tests de lancement pour remplacer l'action par un chronomètre.</p>
+<p>Un autre but couvert par la méthode de test : Instancier et manipuler un GameObject au moyen d'une interaction du clavier.</p>
+<ul>
+<li>Créer un <em>GameObject</em> vide en utilisant le menu contextuel dans la fenêtre de hiérarchie.</li>
+<li>Renommer l'objet AsteroidSpawn.</li>
+<li>Transformer AsteroidSpawn en <em>Prefab</em></li>
+<li>Créer un script nommé AsteroidSpawn dans le dossier approprié.</li>
+<li>Ouvrir le script dans l'éditeur de Code.</li>
+<li>Ajouter la biliothèque InputSystem <code>using UnityEngine.InputSystem;</code>.</li>
+<li>Ajouter un attribut public pour l'interaction qui crée un astéroïde <code>public InputAction LancerAction;</code></li>
+<li>Ajouter un attribut public du type <em>GameObject</em> pour recevoir la référence au prefab d'astéroïde.</li>
+<li>Ajouter la méthode <code>void LancerAsteroid(InputAction.CallbackContext context)</code>.<ul>
+<li>le paramètre context donne des informations par rapport à l'action détectée. Elles ne seront pas utilisées dans ce cas-ci.</li>
+</ul>
+</li>
+<li>Ajouter à cette méthode l'instruction :<ul>
+<li><code>GameObject asteroidObject = Instantiate(asteroidePrefab, transform.position, Quaternion.identity);</code>.</li>
+<li>L'instruction instancie et garde une référence au nouvel astéroïde.</li>
+<li>Le premier paramètre lui fournit le prefab pour créer l'instance.</li>
+<li>Le second désigne la position à laquelle l'instance est créée.</li>
+<li>Le dernier utilise un objet Quaternion pour donner une rotation de 0 à l'instance. L'objet Quaternion est une construction mathématique représentanonion.identity représente une rotation de 0 degrés.</li>
+</ul>
+</li>
+<li>Utiliser l'instruction GetComponent pour récupérer le script de l'astéroïde instancé précédement.<ul>
+<li><code>AsteroidPhysx asteroid = asteroidObject.GetComponent&lt;AsteroidPhysx&gt;();</code></li>
+</ul>
+</li>
+<li>Appeler la méthode <em>Lancer</em> de l'astéroïde avec les paramètres pour qu'il se déplace vers la gauche de l'écran. La méthode <em>Lancer</em> n'existe pas encore. Il faut l'ajouter dans le script de contrôle pour les astéroïdes.<ul>
+<li><code>asteroid.Lancer(Vector2.left, 200);</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="ajuster-le-script-de-lasteroide">Ajuster le script de l'astéroïde</h4>
+<p>Présentement, l'astéroïde est lancé dès sa création avec l'instruction </p>
+<p><code>rigidbody2d.AddForce(Vector2.left * vitesse);</code></p>
+<p>de la méthode <code>Awake()</code>.</p>
+<p>Il faut créer la méthode publique Lancer pour que le script du générateur puisse l'utiliser.</p>
+<ul>
+<li>Ouvrir le script de contrôle de l'astéroïde <em>AsteroidPhysx</em></li>
+<li>Ajouter la méthode publique <code>Lancer(Vector2 direction, float velocite)</code>.</li>
+<li>Transférer l'instruction qui applique une force de la méthode <code>Awake()</code> à cette nouvelle méthode et utiliser les paramètres pour la compléter.</li>
+</ul>
+<h4 id="configurer-la-touche-de-lancement">Configurer la touche de lancement</h4>
+<p>Le script du générateur est prêt à lancer des astéroïdes, il reste à configurer l'action et ajouter l'événement associé dans le script.</p>
+<ul>
+<li>Ouvrir l'éditeur de prefab pour le générateur.</li>
+<li>Dans l'inspecteur, assigner le prefab de l'astéroïde au champ <em>Asteroid Prefab</em> en le glissant à partir de l'explorateur de Projet.</li>
+<li>Configurer l'action pour le type <em>Button</em> (icône d'engrenage).</li>
+<li>Utiliser le bouton + de l'action pour ajouter une liaison (Binding).</li>
+<li>Configurer la liaison pour la touche d'espacement (spacebar).</li>
+</ul>
+<p><img alt="Spawner Config" src="../img/unity_inspectorSpawner_SpaceKit.png" />
+- Ouvrir le script du générateur
+- Dans la méthode <em>Start</em> activer l'action et ajouter l'événement pour la barre d'espacement.</p>
+<pre><code>    lancerAction.Enable();
+    lancerAction.performed += LancerAsteroid;
+</code></pre>
+<ul>
+<li>Tester la scène.</li>
+</ul>
+<h4 id="completer-la-generation-dasteroides">Compléter la génération d'astéroïdes</h4>
+<ul>
+<li>
+<p>En utilisant la méthode <em>Update</em> et le délai depuis le dernier rendu, <em>Time.deltaTime</em>, modifier le générateur d'astéroïdes pour qu'il lance un objet toutes les <strong>delai</strong> secondes au lieu d'une action au clavier.</p>
+</li>
+<li>
+<p><strong>delai</strong> doit être disponible dans l'inspecteur du générateur et sa valeur par défaut est 3.</p>
+</li>
+<li>
+<p>Ajouter un élément aléatoire à la hauteur de lancé pour l'astéroïde. Il doit toujours être dans la zone de jeu quand même.</p>
+</li>
+</ul>
+<h2 id="references-et-approfondissement">Références et approfondissement</h2>
+<p><a href="https://docs.unity3d.com/ScriptReference/Rigidbody2D.html">RigidBody2D</a></p>
+<p><a href="https://docs.unity3d.com/ScriptReference/Collision2D.html">Collision2D</a></p>
+<p><a href="https://docs.unity3d.com/Manual/Tags.html">Tags</a></p>
+<p><a href="https://docs.unity3d.com/ScriptReference/Quaternion.html">Quaternion</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>
