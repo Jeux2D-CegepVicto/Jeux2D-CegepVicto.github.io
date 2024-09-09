@@ -997,19 +997,22 @@
 <p><a href="https://docs.unity3d.com/Packages/com.unity.inputsystem@1.10/manual/index.html">Input System</a></p>
 
 
-<h2 id="Aller-plus-loin">Aller plus loin</h2>
+<h3 id="aller-plus-loin">Aller plus loin</h3>
 <p>Implémentez un suivi de caméra pour suivre le joueur (le vaisseau).</p>
-
-
-
-
-
-
-
-
+<li>Ouvrir le dossier Scripts dans le dossier Assets et créer un nouveau script Create > C# Script.</li>
+<li>Renommer le script CameraFollow.</li>
+<li>Attacher le script à la caméra principale. </li>
+<li>Dans le script, déclarer deux varibales publiques Joueur et Vitesse pour référencer le joueur et la vitesse de suivi.</li>
+<li>Dans la méthode <code>Update()</code>, créer un vecteur 3D pour récupérer la position du joueur.</li>
+<li>Utiliser <code>transform.position</code>  pour changer la position de la caméra 
+et <code>Slerp</code>  pour interpoler la position actuelle de la caméra vers la position du joueur.</li>
+<li>Glisser le GameObject du joueur depuis la hiérarchie vers le champ Joueur du script dans l'Inspector.</li>
+<li>Passer en mode jeu et tester le résultat. La camera devrait suivre le joueur dans toutes les directions.</li>
                 
-              </article>
-            </div>
+      
+                
+</article>
+</div>
           
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
