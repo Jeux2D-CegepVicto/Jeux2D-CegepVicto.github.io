@@ -508,6 +508,30 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#aller-plus-loin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aller plus loin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aller plus loin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementer-un-suivi-de-camera-pour-suivre-le-joueur-le-vaisseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implémenter un suivi de caméra pour suivre le joueur (le vaisseau).
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references-et-approfondissement" class="md-nav__link">
     <span class="md-ellipsis">
       Références et approfondissement
@@ -800,6 +824,30 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#aller-plus-loin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aller plus loin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aller plus loin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementer-un-suivi-de-camera-pour-suivre-le-joueur-le-vaisseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implémenter un suivi de caméra pour suivre le joueur (le vaisseau).
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references-et-approfondissement" class="md-nav__link">
     <span class="md-ellipsis">
       Références et approfondissement
@@ -949,7 +997,7 @@
         horizontal = -1.0f;
     }
 
-    position.x = position.x + 0.1f + horizontal;
+    position.x = position.x + 0.1f * horizontal;
     transform.position = position;
 </code></pre>
 <ul>
@@ -1007,7 +1055,7 @@
 <h3 id="en-pratique_4">En pratique</h3>
 <ul>
 <li>Ouvrir le script de mouvement du joueur.</li>
-<li>Ajouter l'attribut <code>public Float vitesse</code>.</li>
+<li>Ajouter l'attribut <code>public float vitesse</code>.</li>
 <li>Modifier le calcul de la position pour utiliser la variable vitesse au lieu de 0.1f.</li>
 <li>Repérer la nouvelle variable de script dans l'inspecteur du GameObject Joueur.</li>
 </ul>
@@ -1015,6 +1063,20 @@
 <ul>
 <li>Tester le jeu avec différentes valeurs.</li>
 </ul>
+<h2 id="aller-plus-loin">Aller plus loin</h2>
+<h3 id="implementer-un-suivi-de-camera-pour-suivre-le-joueur-le-vaisseau">Implémenter un suivi de caméra pour suivre le joueur (le vaisseau).</h3>
+<ul>
+<li>Ouvrir le dossier Scripts dans le dossier Assets et créer un nouveau script Create &gt; C# Script.</li>
+<li>Renommer le script CameraFollow.</li>
+<li>Attacher le script à la caméra principale.</li>
+<li>Dans le script, déclarer deux varibales publiques Joueur et Vitesse pour référencer le joueur et la vitesse de suivi.</li>
+<li>Dans la méthode Update(), créer un vecteur 3D pour récupérer la position du joueur.</li>
+<li>Utiliser transform.position pour changer la position de caméra et Vector3.Slerp pour interpoler la position actuelle de la caméra vers la position du joueur.</li>
+<li>Pour plus de détails, lire Vector3.Slerp.</li>
+<li>Glisser le GameObject du joueur depuis la hiérarchie vers le champ Joueur du script CameraFollow dans l'Inspector.</li>
+<li>Passer en mode jeu et tester le résultat. La camera devrait suivre le joueur dans toutes les directions.</li>
+</ul>
+<p><a href="https://docs.unity3d.com/ScriptReference/Vector3.Slerp.html">Unity - Scripting API: Vector3.Slerp</a></p>
 <h2 id="references-et-approfondissement">Références et approfondissement</h2>
 <p><a href="https://docs.unity3d.com/Manual/Sprites.html">Les <em>Sprites</em></a></p>
 <p><a href="https://docs.unity3d.com/Manual/class-SpriteRenderer.html">Composante Sprite Renderer</a></p>
