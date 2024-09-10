@@ -22,7 +22,7 @@
     
     
       
-        <title>Déplacements et interactions - Jeux2D - Automne 2024</title>
+        <title>Déplacements et intéractions - Jeux2D - Automne 2024</title>
       
     
     
@@ -37,8 +37,7 @@
     
     
       
-
-    
+        
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
@@ -207,14 +206,7 @@
   
 
     
-     <li class="md-nav__item">
-  <a href="#aller-plus-loin" class="md-nav__link">
-    <span class="md-ellipsis">
-      Aller plus loin
-    </span>
-  </a>
-  
-</li>
+      
       
   
   
@@ -294,7 +286,7 @@
           
   
   <span class="md-ellipsis">
-    Déplacements et interactions
+    Déplacements et intéractions
   </span>
   
 
@@ -305,7 +297,7 @@
         
   
   <span class="md-ellipsis">
-    Déplacements et interactions
+    Déplacements et intéractions
   </span>
   
 
@@ -414,9 +406,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Saisie des interactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#en-pratique_3" class="md-nav__link">
     <span class="md-ellipsis">
       En pratique
@@ -468,6 +461,11 @@
       Définir une Input Action par Valeur
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -558,6 +556,26 @@
   
   <span class="md-ellipsis">
     Physique 02
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../poo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jeux orienté objet
   </span>
   
 
@@ -680,9 +698,10 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Saisie des interactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#en-pratique_3" class="md-nav__link">
     <span class="md-ellipsis">
       En pratique
@@ -734,6 +753,11 @@
       Définir une Input Action par Valeur
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -879,7 +903,7 @@
 <p>Une <em>Input Action</em> est quelque chose que le joueur peut faire dans le jeu : se déplacer, tirer, intéragir avec un personnage, etc...</p>
 <p>L'<em>Input Action</em> est utilisée dans le code pour séparer la logique du type de matériel utilisé. Par exmple, Lorsqu'il faut configurer une nouvelle façon de déplacer le joueur, il n'y a qu'à lier la <em>Input Action</em> désirée au nouveau contrôleur</p>
 <p>Il faut télécharger et activer cette extension pour l'utiliser.</p>
-<h2 id="en-pratique_3">En pratique</h2>
+<h3 id="en-pratique_3">En pratique</h3>
 <h4 id="installer-lextension-input-system">Installer l'extension <em>Input System</em></h4>
 <ul>
 <li>Ouvrir le gestionnaire d'extensions avec le menu <em>Windows &gt; Package Manager</em></li>
@@ -908,7 +932,7 @@
 <ul>
 <li>Ajouter un lien <em>Add Binding</em> avec le bouton <strong>+</strong> de GaucheAction.</li>
 <li>Double cliquer le <em>Binding</em> vide pour GaucheAction</li>
-<li>Développer le menu déroulant de la propriété <em>Path</em> et sélectionner <em>Keyboard</em>.</li>
+<li>Développer le menu déroulant de la propriété <em>Path</em> et sélectionner <em>Listen</em>.</li>
 <li>Enfoncer la touche A et sélectionner <em>A [Keyboard]</em> pour la définition de l'interaction.</li>
 </ul>
 <h4 id="scripter-le-comportement">Scripter le comportement</h4>
@@ -925,7 +949,7 @@
         horizontal = -1.0f;
     }
 
-    position.x = position.x + 0.1f * horizontal;
+    position.x = position.x + 0.1f + horizontal;
     transform.position = position;
 </code></pre>
 <ul>
@@ -980,10 +1004,10 @@
 <h2 id="donner-acces-aux-variables-du-script-dans-linterface-unity">Donner accès aux variables du script dans l'interface Unity</h2>
 <p>Ajuster le mouvement après normalisation devient rapidement désagréable. Il faut ouvrir le script, modifier la variable, sauvegarder, attendre que Unity recompile, etc... Et il n'est question que de la vitesse de déplacement du joueur!</p>
 <p>Pour <strong>optimiser le travail</strong> de conception, rendre disponible des variable comme la vitesse directement dans l'interface de Unity. Ce procédé a déjà été utilisé lors de la configuration des interactions.</p>
-<h4 id="en-pratique_4">En pratique</h4>
+<h3 id="en-pratique_4">En pratique</h3>
 <ul>
 <li>Ouvrir le script de mouvement du joueur.</li>
-<li>Ajouter l'attribut <code>public float vitesse</code>.</li>
+<li>Ajouter l'attribut <code>public Float vitesse</code>.</li>
 <li>Modifier le calcul de la position pour utiliser la variable vitesse au lieu de 0.1f.</li>
 <li>Repérer la nouvelle variable de script dans l'inspecteur du GameObject Joueur.</li>
 </ul>
@@ -997,23 +1021,19 @@
 <p><a href="https://docs.unity3d.com/Packages/com.unity.inputsystem@1.10/manual/index.html">Input System</a></p>
 
 
-<h3 id="aller-plus-loin">Aller plus loin</h3>
-<p> <b> </strong>Implémenter un suivi de caméra pour suivre le joueur (le vaisseau). </b> </p>
-<li>Ouvrir le dossier Scripts dans le dossier Assets et créer un nouveau script Create > C# Script.</li>
-<li>Renommer le script CameraFollow.</li>
-<li>Attacher le script à la caméra principale. </li>
-<li>Dans le script, déclarer deux varibales publiques Joueur et Vitesse pour référencer le joueur et la vitesse de suivi.</li>
-<li>Dans la méthode <code>Update()</code>, créer un vecteur 3D pour récupérer la position du joueur.</li>
-<li>Utiliser <code>transform.position</code>  pour changer la position de caméra 
-et <code>Vector3.Slerp</code>  pour interpoler la position actuelle de la caméra vers la position du joueur.</li>
-<li> Pour plus de détails, lire <a href="https://docs.unity3d.com/ScriptReference/Vector3.Slerp.html"><em>Vector3.Slerp</em></a>.</li>
-<li>Glisser le GameObject du joueur depuis la hiérarchie vers le champ Joueur du script CameraFollow dans l'Inspector.</li>
-<li>Passer en mode jeu et tester le résultat. La camera devrait suivre le joueur dans toutes les directions.</li>
+
+
+
+
+
+
+
+
+
+
                 
-      
-                
-</article>
-</div>
+              </article>
+            </div>
           
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
