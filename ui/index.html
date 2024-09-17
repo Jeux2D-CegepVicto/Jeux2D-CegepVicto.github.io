@@ -11,6 +11,8 @@
         <link rel="canonical" href="https://Jeux2D-Cegepvicto.github.io/ui/">
       
       
+        <link rel="prev" href="../poo/">
+      
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>Éléments d'interface - Jeux2D - Automne 2024</title>
+        <title>Interface utilisateur - Jeux2D - Automne 2024</title>
       
     
     
@@ -96,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Éléments d'interface
+              Interface utilisateur
             
           </span>
         </div>
@@ -342,6 +344,159 @@
   
 
     
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Interface utilisateur
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Interface utilisateur
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reprendre-le-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reprendre le projet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le Canvas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le Canvas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ajouter-la-jauge-de-durabilite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajouter la jauge de durabilité
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programmer-la-mise-a-jour" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programmer la mise à jour
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajouter-du-texte" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajouter du texte
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tester-le-jeu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tester le jeu
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#completer-la-barre" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compléter la barre
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-et-approfondissement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Références et approfondissement
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -378,9 +533,84 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#le-canvas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Le Canvas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Le Canvas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#ajouter-la-jauge-de-durabilite" class="md-nav__link">
     <span class="md-ellipsis">
       Ajouter la jauge de durabilité
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#programmer-la-mise-a-jour" class="md-nav__link">
+    <span class="md-ellipsis">
+      Programmer la mise à jour
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajouter-du-texte" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajouter du texte
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tester-le-jeu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tester le jeu
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#completer-la-barre" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compléter la barre
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-et-approfondissement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Références et approfondissement
     </span>
   </a>
   
@@ -403,7 +633,8 @@
 
 <h1 id="elements-dinterface">Éléments d'interface</h1>
 <p>Élément de compétence ciblé</p>
-<p>00SW - 4 : Programmer la logique du jeu ou de la simulation</p>
+<p>00SW - 3 : Générer des représentations de mondes réels ou imaginaires
+00SW - 4 : Programmer la logique du jeu ou de la simulation</p>
 <p>Habiletés</p>
 <ul>
 <li>Choisir et utiliser les éléments graphiques pour l'affichage et la saisie</li>
@@ -413,12 +644,191 @@
 </ul>
 <h2 id="reprendre-le-projet">Reprendre le projet</h2>
 <p>Le vaisseau vient d'être équipé d'un arme, les collisions influencent la durabilité du joeur et les astéroïdes sont générés automatiquement. Cependant le joueur ne reçoit aucune information et le jeu, bien que compréhensible, n'expose pas toutes les informations nécessaires.</p>
-<p>Cette section entamme la création d'une interface utilisateur permettant d'exposer plus d'informations au sujet de l'environement créé pour le jeu.</p>
+<p>Cette section entamme la création d'une interface utilisateur permettant d'exposer plus d'informations au sujet de l'environement créé pour le jeu. Plus spécifiquement une barre de durabilité (points de vie) pour le vaisseau.</p>
 <p>Commencer par ouvrir le projet existant.</p>
-<h2 id="ajouter-la-jauge-de-durabilite">Ajouter la jauge de durabilité</h2>
+<h2 id="le-canvas">Le Canvas</h2>
+<p>Un GameObject de type Canvas doit être ajouté à la scène pour créer une interface utilisateur. Automatiquement, unity ajoute un second GameObject de type EventSystem qui sera utile pour les interactions avec un menu, une interface (comme un inventaire) et bien d'autres possibilités.</p>
+<p>Le Canvas ajouté n'est pas réduit à la taille du jeu. Tout ce qui sera placé sur le canvas (les GameObjects enfants) seront rendus comme si les limites du canvas étaient les limites de la caméra.</p>
+<p><img alt="Canvas" src="../img/unity_CanvasSize_SpaceKit.png" /></p>
+<p>Pour voir le résultat de la conception, il faut utiliser la vue <strong>Game</strong>. Si deux écrans sont à votre disposition, il est possible de glisser la vue Game dans la seconde fenêtre en utilisant sont onglet. Comme lorsque nous séparons deux fenêtres de navigateur (ex. : Chrome).</p>
+<h3 id="en-pratique">En pratique</h3>
+<h4 id="ajouter-la-jauge-de-durabilite">Ajouter la jauge de durabilité</h4>
 <ul>
-<li></li>
+<li>Créer un <strong>GameObject vide</strong> en tant qu'<strong>enfant</strong> du GameObject <strong>Canvas</strong></li>
+<li>Renommer le <strong>BarreDurabilite</strong></li>
+<li>Cet objet est un conteneur pour les éléments d'interface de notre barre</li>
 </ul>
+<p><img alt="ConteneurBarreHP" src="../img/unity_UIHealth00_SpaceKit.png" /></p>
+<ul>
+<li>Placer <strong>BarreDurabilite</strong> en bas à gauche de l'écran et lui donner une largeur de 100, une hauteur de 30 au moyen de l'inspecteur.</li>
+<li>Ajouter un enfant de type UI &gt; Image à <strong>BarreDurabilite</strong>.</li>
+<li>Renommer l'image <strong>Fond</strong> et donner lui la couleur de votre choix.</li>
+<li>Toujours dans l'inspecteur pour l'objet Fond, cliquer sur le carré d'alignement dans la section Rect Transform.</li>
+<li>Maintenir la touche ALT enfoncée et cliquer sur l'option <strong>Stretch</strong> pour la hauteur et la largeur.</li>
+</ul>
+<p><img alt="ALign menu" src="../img/unity_UIHealth02_SpaceKit.png" /></p>
+<ul>
+<li>On obtient une image centrée et de la même grandeur que le GameObject.</li>
+<li>Retourner dans la sélection des alignement et choisir <strong>Stretch</strong> sur la <strong>largeur</strong>, sans touche de modification (PAS DE ALT!).</li>
+</ul>
+<p><img alt="Fond barre durabilité" src="../img/unity_UIHealth03_SpaceKit.png" /></p>
+<ul>
+<li>Redimensionner le <strong>Fond</strong> pour qu'il occupe seulement la moitié de la hauteur.</li>
+<li>Répéter le processus pour ajouter l'<strong>Image</strong> enfant de <strong>Fond</strong>, qui s'apelle <strong>Barre</strong> (Couleure au choix).</li>
+<li>Ajuster la <strong>Barre</strong> pour qu'elle soit légèrement plus petite que le fond.</li>
+<li>Au moyen du logiciel de dession de votre choix, créer une image .png carrée remplie de la couleure blanche et l'importer dans le dossier Ressources du projet.</li>
+<li>Repérer et sélectionnier l'image dans l'explorateur de projet.</li>
+<li>L'inspecteur présente les options d'importation pour l'image, ajuster <strong>Texture Type</strong> pour qu'elle soit Sprite (2D &amp; UI).</li>
+<li>Sélectionner la <strong>Barre</strong> et repérer la composante <strong>Image</strong> dans l'inspecteur.</li>
+<li>Assigner le carré blanc à la propriété <strong>Source Image</strong>.</li>
+<li>Ajuster les autre propriétés de la composante <strong>Image</strong> pour correspondre à l'illustration suivante</li>
+</ul>
+<p><img alt="Image props" src="../img/unity_UIHealth04_SpaceKit.png" /></p>
+<h4 id="programmer-la-mise-a-jour">Programmer la mise à jour</h4>
+<ul>
+<li>Créer le script UICtrl et l'ouvrir dans Visual Studio.</li>
+<li>Ajuster le script selon l'exemple. Si la nomenclature n'a pas été suivie, il faudra trouver le bon nom pour les éléments</li>
+</ul>
+<pre><code>using System.Linq;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class UICtrl : MonoBehaviour
+{
+    // Accès direct aux propriétés de la barre et au script du joueur
+    public Image barreDurabilite;
+    public JoueurCtrlPhysx joueur;
+
+    /// &lt;summary&gt;
+    /// Méthode appelée lorsque le joueur reçoit des dégâts de durabilité
+    /// &lt;/summary&gt;
+    public void majDurabilite()
+    {
+        float rapport = (float)joueur.durabilite / (float)joueur.maxDurabilite;
+        // La propriété fillAmount détermine le pourcentage de remplissage pour la barre de vie
+        // Calmp est utilisé pour s'assurer que la valeur est correctement bornée
+        barreDurabilite.fillAmount = Mathf.Clamp(rapport, 0, 1f);
+    }
+}
+</code></pre>
+<ul>
+<li>Assigner le script au GameObject vide <strong>BarreDurabilite</strong></li>
+<li>Glisser la <strong>Barre</strong> dans la propriété <strong>Barre Durabilit</strong> du script. Unity sélectionne automatiquement la bonne composante pour la propriété de type Image.</li>
+<li>Répéter l'opération avec le <strong>Joueur</strong> pour la propriété joueur. Unity assocue automatiquement l'<strong>instance du script</strong> assigné à <strong>Joueur</strong>.</li>
+<li>
+<p><strong>IMPORTANT</strong> : Le script utilise l'état actuel du joueur, il faut donc associer le script qui est déjà attaché à joueur et non pas le script de base JoueurCtrlPhysx.</p>
+</li>
+<li>
+<p>Ajuster le script du Joueur</p>
+</li>
+</ul>
+<pre><code>using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class JoueurCtrlPhysx : MonoBehaviour
+{
+    // Les attributs publiques nous donnent accès aux variables dans l'inspecteur directement
+    public InputAction MvmtAction;
+    public float vitesse = 10;
+
+    // Mécanique de durabilité (points de vie)
+    public int maxDurabilite = 100;
+    public int durabilite = 100;
+    // Lien avec l'interface utilisateur
+    public UICtrl ui;
+
+    // Attributs privés qui ne seront pas accessible dans l'inspecteur
+
+    // L'accès au RigidBody du GameObject est nécessaire pour implémenter le déplacement incluant la physique
+    Rigidbody2D rigidBody2d;
+    // La variable mouvement sera utilisée dans la boucle Update ET dans la boucle FixedUpdate
+    // Elle devient donc un attribut privé
+    Vector2 mouvement;
+
+
+
+    void Start()
+    {
+        // Nécessaire pour activer la détection des touches du clavier
+        MvmtAction.Enable();
+
+        // Nécessaire pour avoir accès à la composante RigidBody2D
+        rigidBody2d = GetComponent&lt;Rigidbody2D&gt;();
+
+        // Initialisation de la durabilité du joueur
+        durabilite = maxDurabilite;
+    }
+
+    void Update()
+    {
+        // Détection de l'état des interactions au clavier
+        // Cette partie reste dans la boucle update car elle n'est pas directement de la physique
+        mouvement = MvmtAction.ReadValue&lt;Vector2&gt;();
+
+        // Un déplacement dans la boucle update ne doit pas être lié au moteur de physique
+        // Le code commenté est remplacé par le déplacement du RigidBody
+        /*
+        Vector2 position = (Vector2)transform.position + mouvement * Time.deltaTime * vitesse;
+        transform.position = position;
+        */
+    }
+
+    void FixedUpdate()
+    {
+        // Ce code remplace la méthode sans physique
+
+        // Le calcul de la position finale est le même mais il est basé sur le rigidBody2d
+        Vector2 position = (Vector2)rigidBody2d.position + mouvement * vitesse * Time.deltaTime;
+
+        // Il faut utiliser la méthode MovePosition au lieu d'accéder directement à la composante transform
+        rigidBody2d.MovePosition(position);
+    }
+
+    /// &lt;summary&gt;
+    /// Lorsque le joueur reçoit des dommages la durabilité est ajustée
+    /// et la méthode de mise à jour de l'interface est appelée
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;modificateur&quot;&gt;&lt;/param&gt;
+    public void ChangerDurabilite(int modificateur)
+    {
+        durabilite = Mathf.Clamp(durabilite + modificateur, 0, maxDurabilite);
+        ui.majDurabilite();
+    }
+}
+
+</code></pre>
+<ul>
+<li>Dans l'inspecteur du <strong>Joueur</strong> associer le GameObject porteur du script UICtrl à la propriété UI du script.</li>
+<li><strong>IMPORTANT</strong> : Encore une fois le script doit accéder aux propriétés d'un script en cours d'utilisation dans le jeu. Il faut absolument utiliser le GameObject porteur du script pour la propriété plutôt que le script directement.</li>
+</ul>
+<h4 id="ajouter-du-texte">Ajouter du texte</h4>
+<ul>
+<li>Ajouter le <strong>Package TextMeshPro</strong> au projet.</li>
+<li>Ajouter un enfant au GameObject vide de type : UI &gt; Text (TextMeshPro)</li>
+<li>Renommer le <strong>TitreBarreDurabilite</strong>.</li>
+<li>Au moyen de l'inspecteur :<ul>
+<li>Changer le texte pour "Durabilité".</li>
+<li>Ajuster la position, la police et l'alignement du texte pour obtenir un résultat satisfaisant.</li>
+</ul>
+</li>
+</ul>
+<h4 id="tester-le-jeu">Tester le jeu</h4>
+<ul>
+<li>Vérifier l'ajustement de la barre lorsque le joueur reçoit des dégâts</li>
+<li>Ajuster les propriétés pour obtenir un résultat satisfaisant.</li>
+</ul>
+<p><img alt="Game test" src="../img/unity_UIHealth05_SpaceKit.png" /></p>
+<h4 id="completer-la-barre">Compléter la barre</h4>
+<ul>
+<li>En se fiant aux techniques utilisées dans cette section, ajouter le nombre de points de durabilité restants à la barre de durabilité.</li>
+</ul>
+<p><img alt="Complete BarreHP" src="../img/unity_UIHealth06_SpaceKit.png" /></p>
+<h2 id="references-et-approfondissement">Références et approfondissement</h2>
+<p><a href="https://docs.unity3d.com/Packages/com.unity.ugui@1.0/manual/index.html">Unity UI</a></p>
+<p><a href="https://docs.unity3d.com/Packages/com.unity.ugui@2.0/manual/script-Image.html">Image</a></p>
+<p><a href="https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.2/manual/index.html">TextMeshPro</a></p>
 
 
 
