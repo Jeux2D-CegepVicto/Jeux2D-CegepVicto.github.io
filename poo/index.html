@@ -1,0 +1,798 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Jeux2D-Cegepvicto.github.io/poo/">
+      
+      
+        <link rel="prev" href="../physique02/">
+      
+      
+        <link rel="next" href="../ui/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>Jeux orienté objet - Jeux2D - Automne 2025</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jeux-oriente-objet" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Jeux2D - Automne 2025" class="md-header__button md-logo" aria-label="Jeux2D - Automne 2025" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Jeux2D - Automne 2025
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Jeux orienté objet
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Jeux2D - Automne 2025" class="md-nav__button md-logo" aria-label="Jeux2D - Automne 2025" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Jeux2D - Automne 2025
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jeux2d/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jeux 2D
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mouvement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Déplacements et intéractions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physique01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Physique 01
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physique02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Physique 02
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Jeux orienté objet
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Jeux orienté objet
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reprendre-le-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reprendre le projet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gameobjects-complexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      GameObjects complexes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GameObjects complexes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organiser-des-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organiser des éléments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-relation-parent-enfant" class="md-nav__link">
+    <span class="md-ellipsis">
+      La relation parent-enfant
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="La relation parent-enfant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ajouter-une-arme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajouter une arme
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-et-approfondissement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Références et approfondissement
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interface utilisateur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EffetsSonores/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effets sonores et menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reprendre-le-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reprendre le projet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gameobjects-complexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      GameObjects complexes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GameObjects complexes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organiser-des-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Organiser des éléments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-relation-parent-enfant" class="md-nav__link">
+    <span class="md-ellipsis">
+      La relation parent-enfant
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="La relation parent-enfant">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ajouter-une-arme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajouter une arme
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-et-approfondissement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Références et approfondissement
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="jeux-oriente-objet">Jeux orienté objet</h1>
+<p>Élément de compétence ciblé</p>
+<p>00SW - 4 : Programmer la logique du jeu ou de la simulation</p>
+<p>Habiletés</p>
+<ul>
+<li>Programmer les comportements des éléments graphiqueset des périphériques</li>
+<li>Utiliser les moteurs de jeu ou de simulation</li>
+</ul>
+<h2 id="reprendre-le-projet">Reprendre le projet</h2>
+<p>Le projet entammé dans la section <strong>Mouvement</strong> comporte le joueur et son déplacement, ainsi que la saisie des entrées de l'utilisateur. La section <strong>Physique 01</strong> ajoute le lien avec le moteur de physique et la suivante <strong>Physique 02</strong> implémente plusieurs fonctionnalités.</p>
+<p>Cette section exploite les concepts de GameObjects complexes et de hiérarchie parent-enfant</p>
+<p>Commencer par ouvrir le projet existant.</p>
+<h2 id="gameobjects-complexes">GameObjects complexes</h2>
+<p>Le GameObject utilisé seul est déjà flexible et permet de créer une grande partie des éléments de jeux. Une technique tirée de la conception orientée objet est utilisée pour implémenter les mécaniques plus complexes, ou même simplement organiser efficacement les éléments d'une scène.</p>
+<p>La composition et l'aggrégation sont deux concepts que l'on rencontre fréquement sans les nommer ou les définir. Les deux reposent sur le fait que la classe est un regroupement de plusieurs autres classes, avec une disctinction importante :</p>
+<ul>
+<li>
+<p>Composition : les éléments (classes) de cette contruction n'ont pas de but ou de raison d'être si la classe principale n'existe pas. Il y a un concept de propriété et les éléments seront détruit lorsque la classe sera détruite.</p>
+</li>
+<li>
+<p>Aggrégation : les éléments regroupés fonctionnent ensemble mais peuvent exister et être utilisés indépendament de la classe conteneur.</p>
+</li>
+</ul>
+<h3 id="en-pratique">En pratique</h3>
+<h4 id="organiser-des-elements">Organiser des éléments</h4>
+<ul>
+<li>Le projet en cours contient 4 murs délimitant l'aire disponible pour le joueur. Ces murs fonctionnent indépendament les uns des autres et ont leur propre raison d'être.</li>
+</ul>
+<p><img alt="alt text" src="../img/unity_AggregateGObj00_SpaceKit.png" /></p>
+<ul>
+<li>Le concept d'aggrégation est utilisé pour organiser les éléments et créer une relation entre ces objets. En langage de conception cette aggrégation pourrait être représentée sous forme de classe.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">ZoneJeu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">MurHaut</td>
+</tr>
+<tr>
+<td style="text-align: left;">MurBas</td>
+</tr>
+<tr>
+<td style="text-align: left;">MurGauche</td>
+</tr>
+<tr>
+<td style="text-align: left;">MurDroite</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Concrètement au niveau du moteur de jeu, créer un GameOject vide et le nommer ZoneJeu.</li>
+<li>Glisser chaque mur sur le GameObject ZoneJeu, les murs deviennent des <strong>enfants</strong> de ZoneJeu. </li>
+<li>Remarquer l'indentation des <strong>enfants</strong> par rapport au <strong>parent</strong> dans l'inspecteur d'hiérarchie. Il est aussi possible de masquer les enfants afin d'avoir une meilleure vue d'ensemble de la scène.</li>
+</ul>
+<p><img alt="alt text" src="../img/unity_AggregateGObj01_SpaceKit.png" /></p>
+<h2 id="la-relation-parent-enfant">La relation parent-enfant</h2>
+<p>La relation parent-enfant entre des GameObjects implique plus qu'un simple regroupement.</p>
+<ul>
+<li><strong>ATTENTION</strong> : Les propriétés de position, rotation et mise à l'échelle des enfants deviennent relatives à celles du parent. Donc si une propriété du parent est modifiée, les enfants seront modifiés pour réfléter ce changement.</li>
+</ul>
+<p><img alt="alt text" src="../img/unity_AggregateGObj02_SpaceKit.png" /></p>
+<ul>
+<li>Les scripts doivent propager les informations du parent vers l'enfant. Par exemple un personnage active le tir de son pistolet, la voiture allume les phares, etc.. Donc le parent est conscient et a le droit de modifier l'enfant mais pas l'inverse.</li>
+</ul>
+<h3 id="en-pratique_1">En pratique</h3>
+<h4 id="ajouter-une-arme">Ajouter une arme</h4>
+<ul>
+<li>
+<p>En s'inspirant du lancement d'astéroïde de la section <strong>Physique 02</strong>, créer deux armes différentes qui tiremt lorsque la touche espace est enfoncée. La première lance un seul projectile et la seconde en lance 3, un à l'horizontale et deux autres avec un angle de 30 degrés (plus haut et plus bas). </p>
+</li>
+<li>
+<p>Calibrer le rythme de tir de chaque arme pour qu'il soit équilibré.</p>
+</li>
+<li>
+<p>Ajouter une des deux armes comme enfant du joueur.</p>
+</li>
+</ul>
+<h2 id="references-et-approfondissement">Références et approfondissement</h2>
+<p><a href="https://docs.unity3d.com/2022.3/Documentation/Manual/class-GameObject.html">GameObject</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>

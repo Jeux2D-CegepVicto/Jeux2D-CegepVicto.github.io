@@ -1,0 +1,1177 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Jeux2D-Cegepvicto.github.io/mouvement/">
+      
+      
+        <link rel="prev" href="../environement/">
+      
+      
+        <link rel="next" href="../physique01/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>Déplacements et intéractions - Jeux2D - Automne 2025</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mouvement" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Jeux2D - Automne 2025" class="md-header__button md-logo" aria-label="Jeux2D - Automne 2025" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Jeux2D - Automne 2025
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Déplacements et intéractions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Jeux2D - Automne 2025" class="md-nav__button md-logo" aria-label="Jeux2D - Automne 2025" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Jeux2D - Automne 2025
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jeux2d/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jeux 2D
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Déplacements et intéractions
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Déplacements et intéractions
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creer-un-nouveau-projet-de-developpement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Créer un nouveau projet de développement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importer-des-ressources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importer des ressources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Importer des ressources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#travailler-avec-des-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Travailler avec des images
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Travailler avec des images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ordre-de-rendu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ordre de rendu
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ordre de rendu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saisie-des-interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Saisie des interactions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Saisie des interactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installer-lextension-input-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installer l'extension Input System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definir-une-input-action-directement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Définir une Input Action directement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lier-laction-gauche-a-un-bouton" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lier l'action Gauche à un bouton
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scripter-le-comportement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scripter le comportement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definir-une-input-action-par-valeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Définir une Input Action par Valeur
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendre-le-mouvement-independant-de-la-vitesse-daffichage-framerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rendre le mouvement indépendant de la vitesse d'affichage (framerate)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#donner-acces-aux-variables-du-script-dans-linterface-unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Donner accès aux variables du script dans l'interface Unity
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Donner accès aux variables du script dans l'interface Unity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aller-plus-loin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aller plus loin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aller plus loin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementer-un-suivi-de-camera-pour-suivre-le-joueur-le-vaisseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implémenter un suivi de caméra pour suivre le joueur (le vaisseau).
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-et-approfondissement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Références et approfondissement
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physique01/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Physique 01
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physique02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Physique 02
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../poo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jeux orienté objet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interface utilisateur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EffetsSonores/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effets sonores et menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#creer-un-nouveau-projet-de-developpement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Créer un nouveau projet de développement
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#importer-des-ressources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importer des ressources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Importer des ressources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#travailler-avec-des-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Travailler avec des images
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Travailler avec des images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ordre-de-rendu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ordre de rendu
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ordre de rendu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saisie-des-interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Saisie des interactions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Saisie des interactions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installer-lextension-input-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installer l'extension Input System
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definir-une-input-action-directement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Définir une Input Action directement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lier-laction-gauche-a-un-bouton" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lier l'action Gauche à un bouton
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scripter-le-comportement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scripter le comportement
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definir-une-input-action-par-valeur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Définir une Input Action par Valeur
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendre-le-mouvement-independant-de-la-vitesse-daffichage-framerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rendre le mouvement indépendant de la vitesse d'affichage (framerate)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#donner-acces-aux-variables-du-script-dans-linterface-unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Donner accès aux variables du script dans l'interface Unity
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Donner accès aux variables du script dans l'interface Unity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aller-plus-loin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aller plus loin
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aller plus loin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementer-un-suivi-de-camera-pour-suivre-le-joueur-le-vaisseau" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implémenter un suivi de caméra pour suivre le joueur (le vaisseau).
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-et-approfondissement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Références et approfondissement
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="mouvement">Mouvement</h1>
+<p>Élémets de compétence ciblés</p>
+<p>00SW - 3 : Générer des représentations de mondes réels ou imaginaires
+00SW - 4 : Programmer la logique du jeu ou de la simulation</p>
+<p>Habiletés</p>
+<ul>
+<li>Choisir et utiliser les éléments graphiques pour l'affichage et la saisie</li>
+<li>Intégrer les images </li>
+<li>Utiliser les moteurs de jeu ou de simulation</li>
+<li>Programmer les comportements des éléments graphiques et des périphériques</li>
+</ul>
+<h2 id="creer-un-nouveau-projet-de-developpement">Créer un nouveau projet de développement</h2>
+<ul>
+<li>Démarrer Unity Hub.</li>
+<li>Dans la section <em>Projects</em>, choisir <em>New Project</em>.</li>
+<li>Choisir <em>Universal 2D</em>.</li>
+<li>Nommer le projet et choisir l'emplacement où le projet sera enregistré</li>
+<li>Décocher <em>Connect to Unity Cloud</em></li>
+<li>Choisir <em>Create Project</em></li>
+</ul>
+<h2 id="importer-des-ressources">Importer des ressources</h2>
+<p>Le magasin en ligne de Unity (Asset Store) possède une game étendue de ressources pour les cérateurs. Dans le cadre du cours ce magasin sera utilisé pour se procurer les images et sons pour les projets. Il est bien sûr possible d'utiliser plusieurs autres sources gratuites disponibles en ligne.</p>
+<p>Lors de l'importation de ressources du Asset Store, Unity fait usage du <em>Package Manager</em>. C'est un outil utilisé très fréquement pour étendre les fonctionnalités de Unity selon nos besoin ou, bien sûr, importer des ressources pour nos projets.</p>
+<p>Le package manager se retrouve dans le menu <em>Window &gt; Package Manager</em></p>
+<h3 id="en-pratique">En pratique</h3>
+<ul>
+<li>Ouvrir le magasin en ligne à partir d'un navigateur <a href="https://assetstore.unity.com/">Unity Asset Store</a>.</li>
+<li>Prendre un moment pour explorer les ressources disponibles, notamment les ressources 2D.</li>
+<li>Trouver la ressource : 2D Space Kit.</li>
+<li>Cliquer <em>Add to My Assets</em>.</li>
+<li>Accepter les termes d'utilisation (après les avoir lu... non).</li>
+<li>En haut de la page, choisir <em>Open in Unity</em>, <strong>il faut que votre projet soit déjà ouvert</strong>.</li>
+<li>Unity ouvre le <em>Package Manager</em> avec vos ressrouces déjà sélectionnées.</li>
+<li>Cliquer sur <em>Download</em> et une fois le téléchargement fini sur <strong><em>Import</em></strong> (L'importation est nécessaire).</li>
+</ul>
+<p><img alt="Package Manager " src="../img/unity_pkgMngr_SpaceKit.png" /></p>
+<ul>
+<li>Une nouvelle fenêtre permet de sélectionner seulement quelques éléments. Choisir <em>Import</em>.</li>
+</ul>
+<p><img alt="Package Manager Choix" src="../img/unity_pkgMngr_SpaceKit2.png" /></p>
+<ul>
+<li>Il se peut que Unity demande la mise à jour de certains éléments. Accepter la mise à jour pour tous les fichiers et les prochains.</li>
+</ul>
+<p><img alt="Accept script update" src="../img/unity_pkgMngr_SpaceKit3.png" /></p>
+<ul>
+<li>Explorer les ressources téléchargées.</li>
+</ul>
+<p><img alt="Space Kit in project" src="../img/unity_projectExp_SpaceKit.png" /></p>
+<h2 id="travailler-avec-des-images">Travailler avec des images</h2>
+<p>Les images (.jpg, .png, etc...) qui sont utilisées en jeux vidéo sont appelées sprites. Lorsqu'un GameObject est crée en le glissant dans la scène ou manuellement un composant SpriteRenderer est automatiquement ajouté. Les <em>sprites</em> sont la ressource visuelle principale des jeux en 2 dimensions.</p>
+<h3 id="en-pratique_1">En pratique</h3>
+<ul>
+<li>Parmi les ressources acquises, choisir un vaisseau pour représenter le joueur.</li>
+<li>Glisser l'image directement dans la fenêtre <em>Hierarchy</em>.</li>
+<li>Le vaisseau apparaît directement au centre de la fenêtre de scène et le GameObject est dans la hiérarchie.</li>
+<li>Sélectionner le nouveau GameObject et le renommer <em>Joueur</em> dans l'<em>inspecteur</em>.</li>
+</ul>
+<p><img alt="Rename Player in Inspector" src="../img/unity_InspectorSpriteRenderer1_SpaceKit.png" /></p>
+<ul>
+<li>Répéter le processus pour l'image de fond en sélectionnant parmi les images du dossier : 2D SpaceKit &gt; Backgrounds</li>
+<li>Renommer le GameObject : Fond</li>
+</ul>
+<h2 id="ordre-de-rendu">Ordre de rendu</h2>
+<p>Avec l'ajout d'un fond, le joueur n'est plus visible dans la scène. En mode 2D tout les éléments sont dessinés à la même <em>hauteur</em> par défaut.</p>
+<p>En déterminant la hauteur des sprites il est possible de créer plusieurs illusions de profondeurs. </p>
+<p><img alt="Draw Order" src="../img/unity_DrawOrder_SpaceKit.png" /></p>
+<h3 id="en-pratique_2">En pratique</h3>
+<ul>
+<li>Repérer la propriété <em>Order In Layer</em> du GameObject Fond au moyen de l'inspecteur. C'est une propriété de la composante <em>Sprite Renderer</em>.</li>
+<li>Plus la valeur est haute plus un sprite est affiché au-dessus des autres et vice-versa.</li>
+<li>Modifier le propriété <em>Order In Layer</em> du fond pour -10. </li>
+<li>Remarquer que le joueur est maintenant affiché au-dessus de l'image de fond.</li>
+</ul>
+<p><img alt="Order in Layer" src="../img/unity_InspectorSpriteRenderer2_SpaceKit.png" /></p>
+<h2 id="saisie-des-interactions">Saisie des interactions</h2>
+<p>En découvrant l'environement de travail, le script présenté permet de déplacer le joueur. Cependant, s'il faut programmer les déplacement pour le clavier ET une manette, le code devient rapidement lourd car il faut détailler les effet pour chaque intéraction. De plus, une manette peut aller vers la droite complètement ou en partie. Dans plusieurs jeux de console le personnage se déplace plus ou moins vite selon la position du manche.</p>
+<p>Pour rendre le code plus <strong>efficace</strong> et tenir compte des différentes méthodes d'interaction (<strong>flexible</strong>), Unity a développer l'extension <em>Input System</em>. Cette extension permet de définir des <em>Input Action</em>.</p>
+<p>Une <em>Input Action</em> est quelque chose que le joueur peut faire dans le jeu : se déplacer, tirer, intéragir avec un personnage, etc...</p>
+<p>L'<em>Input Action</em> est utilisée dans le code pour séparer la logique du type de matériel utilisé. Par exmple, Lorsqu'il faut configurer une nouvelle façon de déplacer le joueur, il n'y a qu'à lier la <em>Input Action</em> désirée au nouveau contrôleur</p>
+<p>Il faut télécharger et activer cette extension pour l'utiliser.</p>
+<h3 id="en-pratique_3">En pratique</h3>
+<h4 id="installer-lextension-input-system">Installer l'extension <em>Input System</em></h4>
+<ul>
+<li>Ouvrir le gestionnaire d'extensions avec le menu <em>Windows &gt; Package Manager</em></li>
+<li>S'assurer que le filtre est à : <em>Unity Registry</em></li>
+<li>Repérer et installer l'extension <em>Input System</em></li>
+</ul>
+<p><img alt="Input System" src="../img/unity_InputSystem_SpaceKit.png" /></p>
+<ul>
+<li>Pour utiliser l'extension Unity doit activer d'autres éléments, heureusement il offre de les faire des l'installation. Accepter les modifications et laisser l'éditeur se recharger.</li>
+</ul>
+<p><img alt="Warning" src="../img/unity_InputSystemWarning_SpaceKit.png" /></p>
+<h4 id="definir-une-input-action-directement">Définir une <em>Input Action</em> directement</h4>
+<ul>
+<li>Créer le dossier Scripts dans le dossier Assets.</li>
+<li>Utiliser le menu contextuel (clique droit) pour créer un nouveau script <em>Create &gt; C# Script</em>.</li>
+<li>Renommer le script JoueurCtrl et l'ajouter aux composantes du GameObject Joueur.</li>
+<li>Ouvrir le script et ajouter l'<strong>attribut</strong> <code>public InputAction GaucheAction;</code> à la classe et <strong>sauvegarder</strong> le script.</li>
+<li>Remarquer le changement dans l'inspecteur pour le Joueur. On y retrouve l'action définie dans le script.</li>
+</ul>
+<p><img alt="Input Action Left" src="../img/unity_InputActionLeft_SpaceKit.png" /></p>
+<ul>
+<li>Sélectionner les propriétés de l'action (l'engrenage à droite du nom).</li>
+<li>Configurer <em>Action Type</em> pour que ce soit un <em>Button</em>.</li>
+</ul>
+<h4 id="lier-laction-gauche-a-un-bouton">Lier l'action Gauche à un bouton</h4>
+<ul>
+<li>Ajouter un lien <em>Add Binding</em> avec le bouton <strong>+</strong> de GaucheAction.</li>
+<li>Double cliquer le <em>Binding</em> vide pour GaucheAction</li>
+<li>Développer le menu déroulant de la propriété <em>Path</em> et sélectionner <em>Listen</em>.</li>
+<li>Enfoncer la touche A et sélectionner <em>A [Keyboard]</em> pour la définition de l'interaction.</li>
+</ul>
+<h4 id="scripter-le-comportement">Scripter le comportement</h4>
+<ul>
+<li>Il faut avant tout activer l'action au niveau du script.</li>
+<li>Ajouter <code>GaucheAction.Enable()</code> à la méthode <strong>Start()</strong>.</li>
+<li>Modifier la méthode update pour que le code soit: </li>
+</ul>
+<pre><code>    Vector2 position = transform.position;
+    float horizontal = 0.0f;
+
+    if (GaucheAction.IsPressed())
+    { 
+        horizontal = -1.0f;
+    }
+
+    position.x = position.x + 0.1f * horizontal;
+    transform.position = position;
+</code></pre>
+<ul>
+<li>Tester le jeu et confirmer que le joueur se déplace vers la gauche and utilisant la touche A</li>
+</ul>
+<h4 id="definir-une-input-action-par-valeur">Définir une <em>Input Action</em> par Valeur</h4>
+<p>L'action définie précédement est polyvalente pour l'intéraction (clavier, souris, manette ou autre) mais lorsqu'il s'agit de mouvement le code reste charger car il faut définir chaque direction.</p>
+<p>Unity fournit une méthode pour simplifier encore plus le traitement du déplacement. L'<em>Input Action</em> par valeur. Au lieu de retourner 0 ou 1 si une touche est enfoncée ou non, elle retourne une valeur de 0 à 1 ou même un vecteur (Vector2 dans notre cas) représentant la direction et l'amplitude du déplacement.</p>
+<ul>
+<li>Ouvrir le script JoueurCtrl.</li>
+<li>Remplacer l'attribut publique GaucheAction par <code>public InputAction MvmtAction;</code>.</li>
+<li>Activer l'action dans la méthode <code>Start()</code> de la même façon que pour l'<em>Input Action</em> précédente.</li>
+<li>Modifier la méthode update pour que le code devienne:</li>
+</ul>
+<pre><code>    // ReadValue récupère la valeur de l'action plutôt qu'un résultat binaire (enfoncé ou non)
+    Vector2 mouvement = MvmtAction.ReadValue&lt;Vector2&gt;();
+    Vector2 position = (Vector2)transform.position + mouvement * 0.1f;
+    transform.position = position;
+</code></pre>
+<ul>
+<li>Dans l'inspecteur du GameObject Joueur, ajouter une liaison de type composite <em>Add Up/Down/Left/Right Composite</em>.</li>
+<li>Cette liaison comporte 4 enfants, configurer chaque enfant pour les touches W:haut, A:gauche, S:bas, D:droite, en utilisant la même méthode que celle de la liaison par <em>Button</em>.</li>
+</ul>
+<p><img alt="Composite Binding" src="../img/unity_InputActionAddComposite_SpaceKit.png" />
+<img alt="Composite Binding Result" src="../img/unity_InputActionAddComposite2_SpaceKit.png" /></p>
+<ul>
+<li>Passer en mode jeu et tester le résultat. Le joueur devrait pouvoir se déplacer dans toutes les directions.</li>
+</ul>
+<h2 id="rendre-le-mouvement-independant-de-la-vitesse-daffichage-framerate">Rendre le mouvement indépendant de la vitesse d'affichage (framerate)</h2>
+<p>La boucle de jeu met à jour les informations puis affiche l'état du jeu. Donc, à chaque affichage, la méthode <code>Update()</code> du script de mouvement est exécuté.</p>
+<pre><code>    void Update()
+    {
+        Vector2 mouvement = MvmtAction.ReadValue&lt;Vector2&gt;();
+        Vector2 position = (Vector2)transform.position + mouvement * 0.1f;
+        transform.position = position;
+    }
+</code></pre>
+<p>En analysant le code, le déplacement est de 1/10 d'unité par exécution:
+- Si un ordinateur puissant exécute le jeu et affiche à un rythme de 120fps (frame per second), le joueur se déplace de 12 unités par seconde. 
+- Un autre ordinateur moins performant affiche à un rythme de 60fps, le joueur aura une vitesse de 6 unités par seconde.</p>
+<p>Pour avoir un mouvement cohérent, quelle que soit la machine qui exécute le code, il faut tenir compte du temps écoulé entre chaque exécution. La librairie C# de Unity fournit la classe statique <em>Time</em> qui possède justement l'attribut <em>deltaTime</em>, le temps écoulé depuis la dernière exécution de la boucle de jeu.</p>
+<p>Il ne reste qu'à multiplier le mouvement par <em>deltaTime</em> pour normaliser les déplacement à 0.1 unité par seconde.</p>
+<pre><code>    void Update()
+    {
+        Vector2 mouvement = MvmtAction.ReadValue&lt;Vector2&gt;();
+        Vector2 position = (Vector2)transform.position + mouvement * Time.deltaTime * 0.1f;
+        transform.position = position;
+    }
+
+</code></pre>
+<p>En testant le jeu, il devient évident que la normalisation du mouvement l'a rendu très lent! La valeur magique de 0.1f peut être modifiée pour obtenir une vitesse adéquate.</p>
+<h2 id="donner-acces-aux-variables-du-script-dans-linterface-unity">Donner accès aux variables du script dans l'interface Unity</h2>
+<p>Ajuster le mouvement après normalisation devient rapidement désagréable. Il faut ouvrir le script, modifier la variable, sauvegarder, attendre que Unity recompile, etc... Et il n'est question que de la vitesse de déplacement du joueur!</p>
+<p>Pour <strong>optimiser le travail</strong> de conception, rendre disponible des variable comme la vitesse directement dans l'interface de Unity. Ce procédé a déjà été utilisé lors de la configuration des interactions.</p>
+<h3 id="en-pratique_4">En pratique</h3>
+<ul>
+<li>Ouvrir le script de mouvement du joueur.</li>
+<li>Ajouter l'attribut <code>public float vitesse</code>.</li>
+<li>Modifier le calcul de la position pour utiliser la variable vitesse au lieu de 0.1f.</li>
+<li>Repérer la nouvelle variable de script dans l'inspecteur du GameObject Joueur.</li>
+</ul>
+<p><img alt="Export variable" src="../img/unity_exportScriptVar_SpaceKit.png" /></p>
+<ul>
+<li>Tester le jeu avec différentes valeurs.</li>
+</ul>
+<h2 id="aller-plus-loin">Aller plus loin</h2>
+<h3 id="implementer-un-suivi-de-camera-pour-suivre-le-joueur-le-vaisseau">Implémenter un suivi de caméra pour suivre le joueur (le vaisseau).</h3>
+<ul>
+<li>Ouvrir le dossier Scripts dans le dossier Assets et créer un nouveau script Create &gt; C# Script.</li>
+<li>Renommer le script CameraFollow.</li>
+<li>Attacher le script à la caméra principale.</li>
+<li>Dans le script, déclarer deux varibales publiques Joueur et Vitesse pour référencer le joueur et la vitesse de suivi.</li>
+<li>Dans la méthode Update(), créer un vecteur 3D pour récupérer la position du joueur.</li>
+<li>Utiliser transform.position pour changer la position de caméra et Vector3.Slerp pour interpoler la position actuelle de la caméra vers la position du joueur.</li>
+<li>Pour plus de détails, lire Vector3.Slerp.</li>
+<li>Glisser le GameObject du joueur depuis la hiérarchie vers le champ Joueur du script CameraFollow dans l'Inspector.</li>
+<li>Passer en mode jeu et tester le résultat. La camera devrait suivre le joueur dans toutes les directions.</li>
+</ul>
+<p><a href="https://docs.unity3d.com/ScriptReference/Vector3.Slerp.html">Unity - Scripting API: Vector3.Slerp</a></p>
+<h2 id="references-et-approfondissement">Références et approfondissement</h2>
+<p><a href="https://docs.unity3d.com/Manual/Sprites.html">Les <em>Sprites</em></a></p>
+<p><a href="https://docs.unity3d.com/Manual/class-SpriteRenderer.html">Composante Sprite Renderer</a></p>
+<p><a href="https://docs.unity3d.com/Packages/com.unity.inputsystem@1.10/manual/index.html">Input System</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>

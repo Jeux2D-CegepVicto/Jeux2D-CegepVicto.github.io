@@ -1,0 +1,1166 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://Jeux2D-Cegepvicto.github.io/physique01/">
+      
+      
+        <link rel="prev" href="../mouvement/">
+      
+      
+        <link rel="next" href="../physique02/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>Physique 01 - Jeux2D - Automne 2025</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#physique-01-utiliser-le-moteur-de-physique" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Jeux2D - Automne 2025" class="md-header__button md-logo" aria-label="Jeux2D - Automne 2025" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Jeux2D - Automne 2025
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Physique 01
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Jeux2D - Automne 2025" class="md-nav__button md-logo" aria-label="Jeux2D - Automne 2025" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Jeux2D - Automne 2025
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Accueil
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jeux2d/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jeux 2D
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../environement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mouvement/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Déplacements et intéractions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Physique 01
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Physique 01
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reprendre-le-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reprendre le projet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creer-un-prefab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Créer un Prefab
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Créer un Prefab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifier-un-prefab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modifier un prefab
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modifier un prefab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rigidbody2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      RigidBody2D
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RigidBody2D">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ajouter-rigidbody2d-au-prefab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajouter RigidBody2D au prefab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajuster-les-proprietes-du-rigidbody2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajuster les propriétés du RigidBody2D
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collider2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Collider2D
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Collider2D">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#completer-lasteroide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compléter l'astéroïde
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurer-le-joueur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurer le joueur
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajouter-une-contrainte" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajouter une contrainte
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-methode-fixedupdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      La méthode FixedUpdate
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="La méthode FixedUpdate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modifier-le-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modifier le script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finaliser-le-mouvement-avec-physique" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finaliser le mouvement avec physique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-et-approfondissement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Références et approfondissement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Références et approfondissement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aller-plus-loin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aller plus loin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../physique02/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Physique 02
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../poo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jeux orienté objet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interface utilisateur
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EffetsSonores/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Effets sonores et menu
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reprendre-le-projet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reprendre le projet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creer-un-prefab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Créer un Prefab
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Créer un Prefab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modifier-un-prefab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modifier un prefab
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modifier un prefab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rigidbody2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      RigidBody2D
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RigidBody2D">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ajouter-rigidbody2d-au-prefab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajouter RigidBody2D au prefab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajuster-les-proprietes-du-rigidbody2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajuster les propriétés du RigidBody2D
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collider2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      Collider2D
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Collider2D">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#completer-lasteroide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compléter l'astéroïde
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurer-le-joueur" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configurer le joueur
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ajouter-une-contrainte" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ajouter une contrainte
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-methode-fixedupdate" class="md-nav__link">
+    <span class="md-ellipsis">
+      La méthode FixedUpdate
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="La méthode FixedUpdate">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-pratique_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      En pratique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="En pratique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modifier-le-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modifier le script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finaliser-le-mouvement-avec-physique" class="md-nav__link">
+    <span class="md-ellipsis">
+      Finaliser le mouvement avec physique
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references-et-approfondissement" class="md-nav__link">
+    <span class="md-ellipsis">
+      Références et approfondissement
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Références et approfondissement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aller-plus-loin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aller plus loin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="physique-01-utiliser-le-moteur-de-physique">Physique 01 : Utiliser le moteur de physique</h1>
+<p>Élément de compétence ciblé</p>
+<p>00SW - 4 : Programmer la logique du jeu ou de la simulation</p>
+<p>Habiletés</p>
+<ul>
+<li>Programmer les comportements des éléments graphiques</li>
+<li>Utiliser les moteurs de jeu ou de simulation</li>
+</ul>
+<h2 id="reprendre-le-projet">Reprendre le projet</h2>
+<p>Le projet entammé dans la section <strong>Mouvement</strong> comporte le joueur et son déplacement. </p>
+<p>Pour développer le projet des astéroïdes seront ajoutés pour implémenter les collisions entre le joueur et les obstacles.</p>
+<p>Commencer par ouvrir le projet existant.</p>
+<h2 id="creer-un-prefab">Créer un Prefab</h2>
+<p>La conception orientée objet est omniprésente dans le monde du jeu vidéo. Les moteurs ont chacun leur représentation d'un objet du jeu et un moyen de les rendres réutilisables faciblement.</p>
+<p>Un <em>Prefab</em> dans l'environnement Unity est l'équivalent d'une classe dans notre environnement de programmation. </p>
+<p>Le <em>Prefab</em> contient toutes les propriétés d'un ou plusieurs <em>GameObjects</em> et ses composantes.</p>
+<p>Lorsqu'un <em>Prefab</em> est utilisé dans une scène, il s'agit en fait d'une <strong>instance</strong> de ce <em>Prefab</em>.</p>
+<p>Cette technique est généralement utilisée pour :
+- Les items de l'environnement (ex : fontaines, arbres, lampadaires).
+- Les personnages autres que le joueur.
+- Les projectiles
+- Le personnage du joueur (facilite la modification et les changements de scènes/niveaux)</p>
+<h3 id="en-pratique">En pratique</h3>
+<ul>
+<li>Créer le dossier <strong>Prefabs</strong> dans le dossier <strong>Assets</strong> de l'explorateur de projet.</li>
+<li>Localiser les ressources pour les astéroïdes dans le dossier <em>2D Space Kit &gt; Asteroids</em>.</li>
+<li>Créer un nouveau <em>GameObject</em> basé sur un des astéroïdes et le placer dans la partie droite de la zone de jeu (cadre blanc de la caméra).</li>
+</ul>
+<p><img alt="Asteroid GameObject" src="../img/unity_Prefab00_SpaceKit.png" /></p>
+<ul>
+<li>Sélectionner le dossier <em>Prefabs</em> dans l'explorateur de Projet.</li>
+<li>Glisser le <em>GameObject</em> astéroïde de l'explorateur de hiérarchie dans le dossier Prefabs.</li>
+<li>Un nouveau prefab du même nom est créé. Remarque l'icône en forme de cube bleu, indiquant qu'il s'agit d'un <em>Prefab</em>.</li>
+</ul>
+<p><img alt="Asteroid Prefab" src="../img/unity_Prefab01_SpaceKit.png" /></p>
+<ul>
+<li>Supprimer le <em>GameObject</em> pour l'astéroïde de la scène et le remplacer par le <em>Prefab</em>.</li>
+<li>Remarquer que le <em>Prefab</em> apparaît au même coordonées que le <em>GameObject</em> original lorsqu'on le grlisse dans l'inspecteur de hiérarchie.</li>
+<li>Sauvegarder et tester la scène.</li>
+</ul>
+<h2 id="modifier-un-prefab">Modifier un prefab</h2>
+<p>L'éditeur de prefabs donne accès au propriétés et composantes. Les modifications apportées seront réflétées sur <strong>toutes les instances</strong> de celui-ci.</p>
+<h3 id="en-pratique_1">En pratique</h3>
+<ul>
+<li>Dans le dossier <em>Prefabs</em> double cliquer sur le prefab de l'astéroïde.</li>
+<li>S'assurer que la sauvegarde automatique est activée.</li>
+<li>Modifier la position pour X = 0, Y = 0, Z = 0.</li>
+<li>Quitter l'éditeur en cliquant sur Scènes ou la flèche à gauche de la fenêtre de Hiérarchie.</li>
+</ul>
+<p><img alt="Prefab Editor" src="../img/unity_PrefabEdit00_SpaceKit.png" /></p>
+<ul>
+<li>Remarquer que la position du prefab dans la scène a changé.</li>
+<li>Il est préférable que le GameObject à la racine d'un prefab soit à la postion 0,0,0 pour éviter des comportements inattendus.</li>
+</ul>
+<h2 id="rigidbody2d">RigidBody2D</h2>
+<p>La composante RigidBody2D intègre l'objet relié au calcul de physique de Unity. Il est nécessaire pour faire réagir le <em>GameObject</em> à la gravité, la friction, etc...</p>
+<h3 id="en-pratique_2">En pratique</h3>
+<h4 id="ajouter-rigidbody2d-au-prefab">Ajouter RigidBody2D au prefab</h4>
+<ul>
+<li>Ouvrir l'éditeur de prefab pour l'astéroïde.</li>
+<li>Utiliser le bouton Add Component de l'inspecteur pour ajouter un RigidBody2D (<em>Physics2D &gt; RigidBody2d</em>).</li>
+</ul>
+<p><img alt="Prefab RigidBody2D" src="../img/unity_PrefabEdit01_SpaceKit.png" /></p>
+<ul>
+<li>Fermer l'éditeur et tester le jeu.</li>
+<li>Remarquer que l'astéroïde "tombe" comme s'il y avait de la gravité.</li>
+</ul>
+<h4 id="ajuster-les-proprietes-du-rigidbody2d">Ajuster les propriétés du RigidBody2D</h4>
+<ul>
+<li>Dans l'éditeur de prefab, ajuster la propriété <em>Gravity Scale</em> à 0</li>
+</ul>
+<p><img alt="RigidBody2D Gravity" src="../img/unity_RigidBodyGravity_SpaceKit.png" /></p>
+<ul>
+<li>Tester la scène de nouveau, l'astéroïde reste en place.</li>
+</ul>
+<h2 id="collider2d">Collider2D</h2>
+<p>La composante <em>RigidBody2D</em> est nécessaire à la physique mais le Collider2D est nécessaire à la détection et implémentation des collisions.</p>
+<p>La forme du <em>Collider2D</em> (Rectangle, Capsule, Cercle, etc...) est choisie en fonction de la forme du <em>GameObject</em>, celle qui s'en approche le plus.</p>
+<h3 id="en-pratique_3">En pratique</h3>
+<h4 id="completer-lasteroide">Compléter l'astéroïde</h4>
+<ul>
+<li>Ouvrir l'éditeur pour le prefab de l'astéroïde.</li>
+<li><strong>RAPPEL</strong> : Ne pas oublier de garder la case <em>Auto Save</em> cochée.</li>
+<li>Utiliser l'inspecteur pour ajouter la composante en cercle de Collider2D (trouver avec la barre de recherche du bouton Add Component).</li>
+<li>Le cercle est la forme la plus similaire à l'astéroïde mais il risque d'y avoir des imperfections.</li>
+<li>Au besoin cliquer sur le bouton <em>Edit Collider</em> de la composante et ajuster la forme.</li>
+</ul>
+<p><img alt="Collider Shape" src="../img/unity_ColliderShape_SpaceKit.png" /></p>
+<ul>
+<li>Quitter l'éditeur.</li>
+</ul>
+<h4 id="configurer-le-joueur">Configurer le joueur</h4>
+<ul>
+<li>
+<p>Utiliser les techniques précédentes pour transformer le Joueur en <em>Prefab</em> et le préparer aux collisions.</p>
+</li>
+<li>
+<p>Une fois le joueur configuré, tester la scène et s'assurer que le joueur ne passe plus au travers de l'astéroïde.</p>
+</li>
+</ul>
+<h4 id="ajouter-une-contrainte">Ajouter une contrainte</h4>
+<ul>
+<li>Remarquer que la collision cause une rotation du joueur. </li>
+<li>Ouvrir l'éditeur de prefab pour le joueur.</li>
+<li>Dans l'inspecteur localiser et développer la section <em>Constraints</em> pour la composante <em>RigiBody2D</em>.</li>
+<li>Cocher la case <em>Freeze Rotation</em>.</li>
+</ul>
+<p><img alt="RigidBody Constraint" src="../img/unity_RigidBodyRotationConstraint_SpaceKit.png" /></p>
+<ul>
+<li>Fermer l'éditeur et tester la scène.</li>
+</ul>
+<h2 id="la-methode-fixedupdate">La méthode FixedUpdate</h2>
+<p>Les calculs de physique doivent être effectués à interval régulier pour simuler adéquatement la gravité, la firction, les collisions, les rebonds, etc...</p>
+<p>Pour atteindre cet objectif, Unity implémente une mise à jour à interval fixe qui calcul les effets de la physique sur les <em>GameObjects</em> qui comportent un RigidBody. </p>
+<p>De son côté le développeur doit modifier son traitement des déplacements et interactions entre les <em>GameObjects</em>. Au lieu de programmer le déplacement par la modification des propriétés du <em>Transform</em>, il utilise les propriétés du RigidBody.</p>
+<p>Pour exploiter correctement le système Unity les boucles Update et FixedUpdate ont chacunes leurs responsabilités.</p>
+<p>Update() </p>
+<ul>
+<li>Lire les intéractions de l'utilisateur au clavier</li>
+<li>Implémenter la logique de jeux</li>
+<li>Gérer les compte à rebours et les chronomètres</li>
+<li>Déplacer des objets qui ne sont pas liés à la physique</li>
+</ul>
+<p>FixedUpdate()</p>
+<ul>
+<li>Appliquer les forces, les vélocités et autre calculs liés à la physique</li>
+<li>Modifier les propriétés des <em>RigidBody</em></li>
+</ul>
+<h3 id="en-pratique_4">En pratique</h3>
+<h4 id="modifier-le-script">Modifier le script</h4>
+<ul>
+<li>Dans le dossiers des scripts, <strong>dupliquer</strong> le script de déplacement JoueurCtrl (Menu <em>Edit &gt; Duplicate</em> ou <em>CTRL + D</em>).</li>
+<li>Renommer le script JoueurCtrlPhysx et l'ouvrir dans l'éditeur (Double clique)</li>
+<li>Ajouter les attributs privés : <ul>
+<li><code>RigidBody2D rigidBody2d</code>;</li>
+<li><code>Vector2 mouvement</code>;</li>
+</ul>
+</li>
+<li>Dans la méthode Start(), récupérer la référence à la composante RigidBody2D<ul>
+<li><code>rigidBody2d = GetComponent&lt;Rigidbody2D&gt;();</code></li>
+</ul>
+</li>
+<li>Dans la méthode Update(), modifier la lecture de l'état du MvmtAction pour tenir compte du nouvel attribut mouvement<ul>
+<li><code>mouvement = MvmtAction.ReadValue&lt;Vector2&gt;();</code></li>
+</ul>
+</li>
+<li>Ajouter la méthode <code>void FixedUpdate()</code></li>
+<li>Calculer la position finale en utilisant celle du <em>RigidBody2D</em> (FixedUpdate)<ul>
+<li><code>Vector2 position = (Vector2)rigidBody2d.position + mouvement * vitesse * Time.deltaTime;</code></li>
+</ul>
+</li>
+<li>Changer la position du <em>RigidBody2D</em> avec la méthode MovePosition()<ul>
+<li><code>rigidBody2d.MovePosition(position);</code></li>
+</ul>
+</li>
+<li>Sauvegarder les modification et fermer l'éditeur de code</li>
+</ul>
+<h4 id="finaliser-le-mouvement-avec-physique">Finaliser le mouvement avec physique</h4>
+<ul>
+<li>Ouvrir l'éditeur pour le <em>Prefab</em> du joueur.</li>
+<li>Enlever le script original.</li>
+<li>Ajouter le nouveau script.</li>
+<li>Configurer MvmtAction comme vu dans la section sur le mouvement.</li>
+<li>Fermer l'éditeur et tester la scène.</li>
+</ul>
+<h2 id="references-et-approfondissement">Références et approfondissement</h2>
+<p><a href="https://docs.unity3d.com/Manual/Physics2DReference.html">RigidBody2D &amp; Collider2D</a></p>
+<p><a href="https://docs.unity3d.com/Manual/Prefabs.html">Prefabs</a></p>
+<h3 id="aller-plus-loin">Aller plus loin</h3>
+<ul>
+<li>Créer 1 autre prefab d'astéroïde.</li>
+<li>Déposer quelques instances d'astéroïdes dans la scène.</li>
+<li>Créer 4 murs autour de l'aire de jeu, utiliser des Collider2D pour empêcher les objets de sortir.</li>
+<li>l'étape précédente demande un peu de recherche!</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>
